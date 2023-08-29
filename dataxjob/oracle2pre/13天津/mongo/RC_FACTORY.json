@@ -1,0 +1,153 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 4
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "oraclereader",
+					"parameter": {
+						"username": "USER_13",
+						"password": "123123",
+						"column": [
+							"factory_code",
+							"factory_code",
+							"factory_name",
+							"platform",
+							"factory_type",
+							"factory_type_desc",
+							"address",
+							"contact_name",
+							"contact_tel",
+							"validate_flag",
+							"update_depart_id",
+							"update_staff_id",
+							"update_time",
+							"remark",
+							"PROVINCE_CODE",
+							"PROVINCE_NAME",
+							"PLATFORM_NAME",
+							"factory_name"
+						],
+						"connection": [
+							{
+								"table": [
+									"RC_FACTORY_T"
+								],
+								"jdbcUrl": [
+									"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+								]
+							}
+						]
+					}
+				},
+				"writer": {
+					"name": "mongodbwriter",
+					"parameter": {
+						"address": [
+							"10.124.202.96:27017"
+						],
+						"userName": "",
+						"userPassword": "",
+						"dbName": "res-int",
+						"collectionName": "rc_factory",
+						"column": [
+							{
+								"name": "_id",
+								"type": "string"
+							},
+							{
+								"name": "factoryCode",
+								"type": "string"
+							},
+							{
+								"name": "factoryName",
+								"type": "string"
+							},
+							{
+								"name": "platform",
+								"type": "string"
+							},
+							{
+								"name": "factoryType",
+								"type": "string"
+							},
+							{
+								"name": "factoryTypeDesc",
+								"type": "string"
+							},
+							{
+								"name": "address",
+								"type": "string"
+							},
+							{
+								"name": "contactName",
+								"type": "string"
+							},
+							{
+								"name": "contactTel",
+								"type": "string"
+							},
+							{
+								"name": "validateFlag",
+								"type": "string"
+							},
+							{
+								"name": "updateDepartId",
+								"type": "string"
+							},
+							{
+								"name": "updateStaffId",
+								"type": "string"
+							},
+							{
+								"name": "updateTime",
+								"type": "date"
+							},
+							{
+								"name": "remark",
+								"type": "string"
+							},
+							{
+								"name": "provinceCode",
+								"type": "string"
+							},
+							{
+								"name": "provinceName",
+								"type": "string"
+							},
+							{
+								"name": "platformDesc",
+								"type": "string"
+							},
+							{
+								"name": "factoryCodeName",
+								"type": "string"
+							},
+							{
+								"name": "_class",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"transformer": [
+					{
+						"name": "dx_groovy",
+						"parameter": {
+							"code": "record.setColumn(16, new StringColumn('联通自营')); record.setColumn(18, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.FactoryMongoPo')); return record;",
+							"extraPackage": []
+						}
+					}
+				]
+			}
+		]
+	}
+}

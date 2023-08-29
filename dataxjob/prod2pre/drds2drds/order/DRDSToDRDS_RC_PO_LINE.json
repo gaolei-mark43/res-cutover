@@ -1,0 +1,103 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "PRI_KEY",
+                            "ORDER_ID",
+                            "CITY_ID",
+                            "LINE_NUMBER",
+                            "REFSOMSG_NUMBER",
+                            "IS_PUSH",
+                            "ERROR_CODE",
+                            "ERROR_DESC",
+                            "CHANNELS_ID",
+                            "PART_NUMBER",
+                            "ITEM_NUMBER",
+                            "QUANTITY",
+                            "UNIT_PRICE",
+                            "RESERVED_1",
+                            "RESERVED_2",
+                            "RESERVED_3",
+                            "RESERVED_4",
+                            "RESERVED_5",
+                            "RESERVED_6",
+                            "RESERVED_7",
+                            "RESERVED_8",
+                            "RESERVED_9",
+                            "RESERVED_10"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PO_LINE"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "PRI_KEY",
+                            "ORDER_ID",
+                            "CITY_ID",
+                            "LINE_NUMBER",
+                            "REFSOMSG_NUMBER",
+                            "IS_PUSH",
+                            "ERROR_CODE",
+                            "ERROR_DESC",
+                            "CHANNELS_ID",
+                            "PART_NUMBER",
+                            "ITEM_NUMBER",
+                            "QUANTITY",
+                            "UNIT_PRICE",
+                            "RESERVED_1",
+                            "RESERVED_2",
+                            "RESERVED_3",
+                            "RESERVED_4",
+                            "RESERVED_5",
+                            "RESERVED_6",
+                            "RESERVED_7",
+                            "RESERVED_8",
+                            "RESERVED_9",
+                            "RESERVED_10"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PO_LINE"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

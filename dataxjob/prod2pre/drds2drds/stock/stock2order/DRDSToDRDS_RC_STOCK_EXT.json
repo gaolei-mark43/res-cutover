@@ -1,0 +1,71 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "TRSE_ID",
+                            "RS_IMEI",
+                            "EXT_CODE",
+                            "EXT_VALUE",
+                            "EXT_DESC",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_EXT"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TRSE_ID",
+                            "RS_IMEI",
+                            "EXT_CODE",
+                            "EXT_VALUE",
+                            "EXT_DESC",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_EXT"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

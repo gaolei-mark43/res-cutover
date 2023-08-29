@@ -1,0 +1,75 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "AUTHORIZE_ID",
+                            "DEPOT_ID",
+                            "AUTHORIZE_DEPOT_ID",
+                            "STATE",
+                            "STAFF_ID",
+                            "CREATE_TIME",
+                            "REMARK",
+                            "DEPOT_NAME",
+                            "AUTHORIZE_DEPOT_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_AUTHORIZE"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "AUTHORIZE_ID",
+                            "DEPOT_ID",
+                            "AUTHORIZE_DEPOT_ID",
+                            "STATE",
+                            "STAFF_ID",
+                            "CREATE_TIME",
+                            "REMARK",
+                            "DEPOT_NAME",
+                            "AUTHORIZE_DEPOT_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_AUTHORIZE"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

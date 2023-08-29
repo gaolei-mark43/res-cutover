@@ -1,0 +1,38 @@
+node{
+
+    stage('RC_DEPOT_AUTHORIZE'){
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/param
+		cat RC_DEPOT_AUTHORIZE.json
+        """
+    }
+
+    stage('RC_DEPOT_EFFECT') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/param
+		cat RC_DEPOT_EFFECT.json
+        """
+    }
+    stage('RC_DEPOT') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/param
+		cat RC_DEPOT.json
+        """
+    }
+    stage('RC_FACTORY') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/param
+		cat RC_FACTORY.json
+        """
+    }
+
+	stage('exit') {
+
+        sh """
+        exit
+        """
+    }
+}

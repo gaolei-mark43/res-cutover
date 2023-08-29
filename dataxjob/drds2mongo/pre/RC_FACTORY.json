@@ -1,0 +1,160 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 2
+		 
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "column": [
+"factory_code",
+"factory_code",
+                            "FACTORY_CODE_NAME",
+                            "platform",
+                            "factory_type",
+                            "factory_type_desc",
+                            "address",
+                            "contact_name",
+                            "contact_tel",
+                            "validate_flag",
+                            "update_depart_id",
+                            "update_staff_id",
+                            "update_time",
+                            "remark",
+			"PLATFORM_DESC",
+			"PROVINCE_CODE",
+			"PROVINCE_NAME",
+			"FACTORY_CODE_NAME"
+
+],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_FACTORY"
+                                ],
+                                "jdbcUrl": [
+								"jdbc:mysql://10.124.158.186:3306/pre_param?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mongodbwriter",
+		    "parameter": {
+                       "address": [
+                          "10.124.202.96:27017"
+                        ],
+			"userName": "",
+			"userPassword": "",
+			"dbName": "res-int",
+			"collectionName": "rc_factory",
+			"column": [
+			     {
+				    "name": "_id",
+				    "type": "string"
+				 },
+{
+                                    "name": "factoryCode",
+                                    "type": "string"
+                                 },
+				 {
+				    "name": "factoryName",
+				    "type": "string"
+				 },				 
+				 {
+				    "name": "platform",
+				    "type": "string"
+				 },
+				 {
+				    "name": "factoryType",
+				    "type": "string"
+				 },
+				 {
+				    "name": "factoryTypeDesc",
+				    "type": "string"
+				 },
+				 {
+				    "name": "address",
+				    "type": "string"
+				 },
+				 {
+				    "name": "contactName",
+				    "type": "string"
+				 },
+				 {
+				    "name": "contactTel",
+				    "type": "string"
+				 },
+				 {
+				    "name": "validateFlag",
+				    "type": "string"
+				 },
+				 {
+				    "name": "updateDepartId",
+				    "type": "string"
+				 },
+				 {
+				    "name": "updateStaffId",
+				    "type": "string"
+				 },
+				 {
+				    "name": "updateTime",
+				    "type": "date"
+				 },
+				 {
+				    "name": "remark",
+				    "type": "string"
+				 },
+				 {
+				    "name": "platformDesc",
+				    "type": "string"
+				 },
+				{
+                                    "name": "provinceCode",
+                                    "type": "string"
+                                 },
+				{
+                                    "name": "provinceName",
+                                    "type": "string"
+                                 },
+				{
+                                    "name": "factoryCodeName",
+                                    "type": "string"
+                                 },
+				 {
+				    "name": "_class",
+				    "type": "string"
+				 }
+			 ]
+		   }
+                },
+                "transformer": [
+		{
+			"name": "dx_groovy",
+			"parameter": {
+			    "code": "
+			
+				record.setColumn(14, new StringColumn('联通自营')); 
+			    record.setColumn(18, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.FactoryMongoPo')); 
+			    return record;",
+
+			    "extraPackage":[]
+			}
+		}
+		]
+            }
+        ]
+    }
+}

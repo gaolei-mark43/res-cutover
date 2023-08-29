@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.245.33.254",
+        "user": "prod_zyzx_drsintf",
+        "password": "prod_drsintf_7634",
+        "db": "prod_zyzx_drsintf",
+        "deletetable": "RC_ORDER_AUDIT",
+        "sql_get": "SELECT TOOA_ID from RC_ORDER_AUDIT where order_id in(SELECT a.order_id FROM RC_ORDER_AUDIT a ,RC_ORDER b WHERE a.order_id =b.order_id and b.PROVINCE_CODE in ('74'));",
+		"sql_del": "delete from RC_ORDER_AUDIT where TOOA_ID in ({})",
+        "deletekey":"TOOA_ID",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.191.41.9",
+        "port": 20000,
+        "db": "resprod",
+        "username": "resprod",
+        "password": "resprod123",
+        "deletetable": "rc_order_audit",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "http://10.124.193.210:8765/",
+        "sql_del":"delete from RC_ORDER_AUDIT where ROW_KEY in ('{}')",
+        "is_delete":0
+    }
+}

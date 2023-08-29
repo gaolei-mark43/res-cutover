@@ -1,0 +1,86 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 10
+      },
+      "errorLimit": {
+        "record": 10000000,
+        "percentage": 0.2
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "oraclereader",
+          "parameter": {
+            "username": "USER_84",
+            "password": "123123",
+            "column": [
+              "trdr_id",
+              "rs_id",
+              "rsname",
+              "depot_id",
+              "depotname",
+              "rs_num",
+              "lock_num",
+              "contract_no",
+              "province_code",
+              "provincename",
+              "eparchy_code",
+              "eparchyname",
+              "record_date",
+              "update_time",
+              "remark"
+
+            ],
+            "splitPk": "trdr_id",
+            "connection": [
+              {
+                "table": [
+                  "RC_DEPOT_RES"
+                ],
+                "jdbcUrl": [
+                  "jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "drdswriter",
+          "parameter": {
+            "writeMode": "insert ignore",
+            "username": "prod_zyzx_drsstock",
+            "password": "prod_drsstock_0258",
+            "column": [
+              "TRDR_ID",
+              "RS_ID",
+              "RS_NAME",
+              "DEPOT_ID",
+              "DEPOT_NAME",
+              "RS_NUM",
+              "LOCK_NUM",
+              "CONTRACT_NO",
+              "PROVINCE_CODE",
+              "PROVINCE_NAME",
+              "EPARCHY_CODE",
+              "EPARCHY_NAME",
+              "RECORD_DATE",
+              "UPDATE_TIME",
+              "REMARK"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://10.245.32.95:3306/prod_zyzx_drsstock?useUnicode=true&characterEncoding=gbk",
+                "table": [
+                  "RC_DEPOT_RES_ready0522"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

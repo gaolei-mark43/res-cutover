@@ -1,0 +1,23 @@
+{
+    "common":{
+        "channel":10,
+        "batch_size":1024,
+        "write_mode":"replace"
+    },
+    "source":{
+        "host":"10.124.158.186",
+        "user":"pre_manager",
+        "password":"aa11bb22",
+        "db":"pre_param",
+        "table":"rc_catalog_price_his",
+        "splitPk":""
+
+    },
+    "target":{
+        "host":"10.124.158.186",
+        "user":"pre_manager",
+        "password":"aa11bb22",
+        "db":"pre_param",
+        "table":"rc_catalog_price_his_temp"
+    }
+}

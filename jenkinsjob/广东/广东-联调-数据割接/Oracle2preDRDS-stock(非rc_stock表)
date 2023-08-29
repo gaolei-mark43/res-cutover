@@ -1,0 +1,51 @@
+node{
+
+    stage('RC_DEPOT_RES'){
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_DEPOT_RES.json
+        """
+    }
+
+    stage('RC_RES_EXT') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_RES_EXT.json
+        """
+    }
+    stage('RC_RESOURCE') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_RESOURCE.json
+        """
+    }
+    stage('RC_RES_TAC') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_RES_TAC.json
+        """
+    }
+    stage('RC_STOCK_EXT') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_STOCK_EXT.json
+        """
+    }
+    stage('RC_TERMINAL_CONSIG') {
+
+        sh """
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mysql/stock
+		cat RC_TERMINAL_CONSIG.json
+        """
+    }
+	stage('exit') {
+
+        sh """
+        exit
+        """
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "VIRTUAL_ORDER",
+                            "PROVINCE_CODE",
+                            "CITY",
+                            "CHANNEL_CODE",
+                            "RS_ID",
+                            "COMB_CONSIG",
+                            "RS_IMEI_ID",
+                            "COM_FLAG",
+                            "UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_VIRTUAL_CONSIG"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "VIRTUAL_ORDER",
+                            "PROVINCE_CODE",
+                            "CITY",
+                            "CHANNEL_CODE",
+                            "RS_ID",
+                            "COMB_CONSIG",
+                            "RS_IMEI_ID",
+                            "COM_FLAG",
+                            "UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_VIRTUAL_CONSIG"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

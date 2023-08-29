@@ -1,0 +1,87 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "LOG_SEQ",
+                            "ORDER_ID",
+                            "OPER_ID",
+                            "ORDER_ID_OUT",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "DEPOT_ID",
+                            "RS_ID",
+                            "OPERATION_TYPE_FREE",
+                            "OPERATION_TYPE_LOCK",
+                            "LOCK_NUM",
+                            "RS_NUM",
+                            "CHANGE_RS_NUM",
+                            "CHANGE_LOCK_NUM",
+                            "UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES_CHANGE_LOG"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "LOG_SEQ",
+                            "ORDER_ID",
+                            "OPER_ID",
+                            "ORDER_ID_OUT",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "DEPOT_ID",
+                            "RS_ID",
+                            "OPERATION_TYPE_FREE",
+                            "OPERATION_TYPE_LOCK",
+                            "LOCK_NUM",
+                            "RS_NUM",
+                            "CHANGE_RS_NUM",
+                            "CHANGE_LOCK_NUM",
+                            "UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES_CHANGE_LOG"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

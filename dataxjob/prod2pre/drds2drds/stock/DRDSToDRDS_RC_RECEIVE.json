@@ -1,0 +1,81 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "RS_IMEI",
+                            "PROVINCE_CODE",
+                            "CITY_CODE",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "DEPOT_SEAT",
+                            "UPDATE_TIME",
+                            "UPDATA_STAFF",
+                            "UPDATA_STAFF_NAME",
+                            "RECEIVE_STAFF",
+                            "RECEIVE_STAFF_NAME",
+                            "RECEIVE_STAFF_PHONE"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RECEIVE"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "RS_IMEI",
+                            "PROVINCE_CODE",
+                            "CITY_CODE",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "DEPOT_SEAT",
+                            "UPDATE_TIME",
+                            "UPDATA_STAFF",
+                            "UPDATA_STAFF_NAME",
+                            "RECEIVE_STAFF",
+                            "RECEIVE_STAFF_NAME",
+                            "RECEIVE_STAFF_PHONE"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RECEIVE"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

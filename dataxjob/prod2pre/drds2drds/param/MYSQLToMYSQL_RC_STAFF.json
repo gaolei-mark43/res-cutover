@@ -1,0 +1,109 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "DEPART_ID",
+                            "SERIAL_NUMBER",
+                            "EMAIL",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "BSS_STAFF_ID",
+                            "BSS_STAFF_CODE",
+                            "BSS_DEPART_CODE",
+                            "BSS_AREA_CODE",
+                            "JOB_CODE",
+                            "MANAGER_INFO",
+                            "SEX",
+                            "USER_PID",
+                            "DISMISSION_TAG",
+                            "BIRTHDAY",
+                            "LOGIN_CHECK_TYPE",
+                            "ID_START_TYPE",
+                            "ID_START_DATE",
+                            "START_DATE",
+                            "END_DATE",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STAFF"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "DEPART_ID",
+                            "SERIAL_NUMBER",
+                            "EMAIL",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "BSS_STAFF_ID",
+                            "BSS_STAFF_CODE",
+                            "BSS_DEPART_CODE",
+                            "BSS_AREA_CODE",
+                            "JOB_CODE",
+                            "MANAGER_INFO",
+                            "SEX",
+                            "USER_PID",
+                            "DISMISSION_TAG",
+                            "BIRTHDAY",
+                            "LOGIN_CHECK_TYPE",
+                            "ID_START_TYPE",
+                            "ID_START_DATE",
+                            "START_DATE",
+                            "END_DATE",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STAFF"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

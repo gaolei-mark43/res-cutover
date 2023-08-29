@@ -1,0 +1,234 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 8
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "oraclereader",
+					"parameter": {
+						"username": "USER_36",
+						"password": "123123",
+						"column": [
+							"rs_id",
+							"rs_id",
+							"rs_name",
+							"province_code",
+							"province_name",
+							"rs_id_out",
+							"bar_code",
+							"platform",
+							"platform_name",
+							"manage_type",
+							"manage_type_desc",
+							"res_type_code",
+							"res_type_desc",
+							"res_subtype_code",
+							"res_subtype_desc",
+							"res_brand_code",
+							"res_brand_desc",
+							"res_model_code",
+							"res_model_desc",
+							"res_producer",
+							"res_producer_name",
+							"res_explain",
+							"factory_code",
+							"factory_name",
+							"price",
+							"validate_flag",
+							"create_time",
+							"update_depart",
+							"update_depart_name",
+							"update_staff",
+							"update_staff_name",
+							"update_time",
+							"RS_SPU",
+							"remark"
+						],
+						"connection": [
+							{
+								"table": [
+									"RC_RESOURCE_T"
+								],
+								"jdbcUrl": [
+									"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+								]
+							}
+						]
+					}
+				},
+				"writer": {
+					"name": "mongodbwriter",
+					"parameter": {
+						"address": [
+							"10.124.202.96:27017"
+						],
+						"userName": "",
+						"userPassword": "",
+						"dbName": "res-int",
+						"collectionName": "rc_resource",
+						"column": [
+							{
+								"name": "_id",
+								"type": "Long"
+							},
+							{
+								"name": "rsId",
+								"type": "Long"
+							},
+							{
+								"name": "resName",
+								"type": "string"
+							},
+							{
+								"name": "provinceCode",
+								"type": "string"
+							},
+							{
+								"name": "provinceName",
+								"type": "string"
+							},
+							{
+								"name": "rsIdOut",
+								"type": "string"
+							},
+							{
+								"name": "barCode",
+								"type": "string"
+							},
+							{
+								"name": "platform",
+								"type": "string"
+							},
+							{
+								"name": "platformName",
+								"type": "string"
+							},
+							{
+								"name": "manageType",
+								"type": "string"
+							},
+							{
+								"name": "manageTypeName",
+								"type": "string"
+							},
+							{
+								"name": "resTypeCode",
+								"type": "string"
+							},
+							{
+								"name": "resTypeDesc",
+								"type": "string"
+							},
+							{
+								"name": "resSubtypeCode",
+								"type": "string"
+							},
+							{
+								"name": "resSubtypeDesc",
+								"type": "string"
+							},
+							{
+								"name": "resBrandCode",
+								"type": "string"
+							},
+							{
+								"name": "resBrandDesc",
+								"type": "string"
+							},
+							{
+								"name": "resModelCode",
+								"type": "string"
+							},
+							{
+								"name": "resModelDesc",
+								"type": "string"
+							},
+							{
+								"name": "resProducer",
+								"type": "string"
+							},
+							{
+								"name": "resProducerName",
+								"type": "string"
+							},
+							{
+								"name": "resExplain",
+								"type": "string"
+							},
+							{
+								"name": "factoryCode",
+								"type": "string"
+							},
+							{
+								"name": "factoryCodeName",
+								"type": "string"
+							},
+							{
+								"name": "price",
+								"type": "int"
+							},
+							{
+								"name": "validateFlag",
+								"type": "string"
+							},
+							{
+								"name": "createTime",
+								"type": "date"
+							},
+							{
+								"name": "updateDepart",
+								"type": "string"
+							},
+							{
+								"name": "updateDepartName",
+								"type": "string"
+							},
+							{
+								"name": "updateStaff",
+								"type": "string"
+							},
+							{
+								"name": "updateStaffName",
+								"type": "string"
+							},
+							{
+								"name": "updateTime",
+								"type": "date"
+							},
+							{
+								"name": "rsSpu",
+								"type": "string"
+							},
+							{
+								"name": "remark",
+								"type": "string"
+							},
+							{
+								"name": "_class",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"transformer": [
+					{
+						"name": "dx_groovy",
+						"parameter": {
+							"code": "
+							Column col0 = record.getColumn(0);String oriId = col0.asString();record.setColumn(0, new LongColumn(oriId)); 
+							Column col1 = record.getColumn(1);String oriId1 = col1.asString();record.setColumn(1, new LongColumn(oriId1)); 
+							Column column = record.getColumn(24);String oriValue = column.asString();record.setColumn(24, new LongColumn(oriValue));
+							record.setColumn(34, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.ResourceMongoPo'));
+							return record;",
+				    "extraPackage": []
+						}
+					}
+				]
+			}
+		]
+	}
+}

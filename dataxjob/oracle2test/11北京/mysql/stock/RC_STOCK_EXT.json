@@ -1,0 +1,70 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 10
+      },
+      "errorLimit": {
+        "record": 10000000,
+        "percentage": 0.2
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "oraclereader",
+          "parameter": {
+            "username": "USER_11",
+            "password": "123123",
+            "column": [
+              "trse_id",
+              "rs_imei",
+              "ext_code",
+              "ext_value",
+              "ext_desc",
+              "update_time",
+              "remark"
+            ],
+            "splitPk": "rs_imei",
+            "connection": [
+              {
+                "table": [
+                  "rc_stock_ext"
+                ],
+                "jdbcUrl": [
+                  "jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "drdswriter",
+          "parameter": {
+            "writeMode": "insert ignore",
+            "username": "prezyzx_iresource",
+            "password": "prezyzx_iresource112",
+            "column": [
+              "TRSE_ID",
+              "RS_IMEI",
+              "EXT_CODE",
+              "EXT_VALUE",
+              "EXT_DESC",
+              "UPDATE_TIME",
+              "REMARK"
+
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://10.124.147.246:3306/prezyzx_iresource?useUnicode=true&characterEncoding=UTF-8",
+                "table": [
+                  "rc_stock_ext"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 2
+		 
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "where": "",
+                        "column": [
+                            "AUTHORIZE_ID",
+				"AUTHORIZE_ID",
+                            "DEPOT_ID",
+                            "AUTHORIZE_DEPOT_ID",
+                            "STATE",
+                            "STAFF_ID",
+                            "CREATE_TIME",
+                            "REMARK",
+                            "DEPOT_NAME",
+                            "AUTHORIZE_DEPOT_NAME"
+							
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_AUTHORIZE"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.158.186:3306/pre_param?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mongodbwriter",
+		    "parameter": {
+                       "address": [
+                          "10.124.202.96:27017"
+                        ],
+			"userName": "",
+			"userPassword": "",
+			"dbName": "res-int",
+			"collectionName": "rc_depot_authorize",
+			"column": [
+				 {
+				    "name": "_id",
+				    "type": "string"
+				 },
+			        {
+                                    "name": "authorizeId",
+                                    "type": "string"
+                                 },
+				 {
+				    "name": "depotId",
+				    "type": "string"
+				 },
+				 {
+				    "name": "authorizeDepotId",
+				    "type": "string"
+				 },
+				 {
+				    "name": "state",
+				    "type": "string"
+				 },
+				 {
+				    "name": "staffId",
+				    "type": "string"
+				 },
+				 {
+				    "name": "createTime",
+				    "type": "date"
+				 },
+				 {
+				    "name": "remark",
+				    "type": "string"
+				 },
+				 {
+				    "name": "depotName",
+				    "type": "string"
+				 },
+				 {
+				    "name": "authorizeDepotName",
+				    "type": "string"
+				 },
+				 {
+				    "name": "_class",
+				    "type": "string"
+				 }
+			 ]
+		   }
+                },
+                "transformer": [
+		{
+			"name": "dx_groovy",
+			"parameter": {
+			    "code": "
+			  
+			    record.setColumn(10, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.DepotAuthorizeMongoPo')); 
+			    return record;",
+
+			    "extraPackage":[]
+			}
+		}
+		]
+            }
+        ]
+    }
+}

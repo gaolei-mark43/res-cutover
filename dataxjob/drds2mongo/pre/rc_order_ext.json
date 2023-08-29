@@ -1,0 +1,111 @@
+{
+    "job": 
+         {
+        "setting": {
+            "speed": {
+                 "channel": 2
+                 
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        
+                        "column": [
+"TOOE_ID",
+"TOOE_ID",
+"ORDER_ID",
+"EXT_CODE",
+"EXT_VALUE",
+"UPDATE_TIME"
+
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "rc_order_ext"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mongodbwriter",
+                    "parameter": {
+                       "address": [
+                         "10.124.202.96:27017"
+                        ],
+                        "userName": "",
+                        "userPassword": "",
+                        "dbName": "res-int",
+                        "collectionName": "rc_order_ext",
+                        "column": [
+{
+                                    "name": "_id",
+                                    "type": "Long"
+                                 },
+                                 {
+                                    "name": "tooeId",
+                                    "type": "Long"
+                                 },                              
+                                 {
+                                    "name": "orderId",
+                                    "type": "Long"
+                                 },
+                                 {
+                                    "name": "extCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "extValue",
+                                    "type": "string"
+                                 },
+								 {
+                                    "name": "updateTime",
+                                    "type": "date"
+                                 }                               
+
+                         ]
+                   }
+                },
+                "transformer": [
+                {
+                        "name": "dx_groovy",
+                        "parameter": {
+                            "code": "
+                             Column column = record.getColumn(0);
+                            String oriValue = column.asString();
+                            record.setColumn(0, new LongColumn(oriValue));
+
+                            Column col1 = record.getColumn(1);
+                            String ori1 = col1.asString();
+                            record.setColumn(1, new LongColumn(ori1));
+
+                            Column co2 = record.getColumn(2);
+                            String ori2 = co2.asString();
+                            record.setColumn(2, new LongColumn(ori2));
+                            
+
+							
+							
+                            return record;",
+
+                            "extraPackage":[]
+                        }
+                }
+                ]
+            }
+        ]
+    }
+}

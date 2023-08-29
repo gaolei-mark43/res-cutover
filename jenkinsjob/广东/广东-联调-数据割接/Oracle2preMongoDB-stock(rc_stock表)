@@ -1,0 +1,20 @@
+node{
+
+
+    stage('RC_STOCK_51'){
+        sh """
+        echo "执行datax的用户:"
+        whoami
+        cd /home/deployer/resource_job/res-cutover/dataxjob/oracle2pre/51广东/mongo
+		cat RC_STOCK.json
+        """
+    }
+
+
+	stage('exit') {
+
+        sh """
+        exit
+        """
+    }
+}

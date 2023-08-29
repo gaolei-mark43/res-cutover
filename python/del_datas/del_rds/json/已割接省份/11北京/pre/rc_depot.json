@@ -1,0 +1,33 @@
+{
+    "common":{
+        "channel":10,
+        "batch_size":1024
+    },
+    "mysql": {
+        "host": "10.124.158.186",
+        "user": "pre_manager",
+        "password": "aa11bb22",
+        "db": "pre_param",
+        "bak_name": "rc_depot",
+        "sql_get": "SELECT DEPOT_ID FROM rc_depot  WHERE PROVINCE_CODE IN ('11') AND DEPOT_TYPE IN (1,2);",
+        "sql_del": "delete from rc_depot  where DEPOT_ID in ('{}')",
+        "delete_key":"DEPOT_ID",
+        "is_delete":1
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_depot",
+        "sql":"{'depotId': {'$in':  datas}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "",
+        "sql_del":"",
+        "is_delete":0,
+        "betch_size":500
+    }
+}

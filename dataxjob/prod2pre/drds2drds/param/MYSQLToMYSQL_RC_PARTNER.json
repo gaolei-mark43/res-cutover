@@ -1,0 +1,157 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "PARTNER_ID",
+                            "PRI_KEY",
+                            "BATCH_ID",
+                            "CHECK_STATE",
+                            "OPERATE_TYPE",
+                            "PARTNER_MDM_CODE",
+                            "PARTNER_TYPE",
+                            "PARTNER_NAME",
+                            "PARTNER_NAME_EN",
+                            "CORP_ALIAS",
+                            "ORGANIZATION_CODE",
+                            "LEGAL_REPRESENTATIVE",
+                            "COUNTRY",
+                            "PROVINCE_NAME",
+                            "CITY_NAME",
+                            "REG_ADDRESS",
+                            "PHONE_NUMBER",
+                            "FAX_NUMBER",
+                            "POST_CODE",
+                            "ORG_TYPE_CODE",
+                            "ENROLL_CODE",
+                            "ENROLL_DATE",
+                            "ENROLL_FUND",
+                            "CURRENCY_TYPE_CODE",
+                            "ORGCODE_START_DATE",
+                            "ORGCODE_END_DATE",
+                            "BUSS_TYPE_CODE",
+                            "ADMIN_ORG",
+                            "ADMIN_ORG_CODE",
+                            "IS_LISTED",
+                            "TAX_TYPE",
+                            "TAX_CODE",
+                            "LICENSE_CODE",
+                            "LICENSE_CODE_START",
+                            "LICENSE_CODE_END",
+                            "BUSS_SCOPE",
+                            "CORP_PORTAL",
+                            "CARD_TYPE_CODE",
+                            "STATUS",
+                            "PARENT_CODE",
+                            "CREATION_BY",
+                            "CREATE_DATE",
+                            "LAST_UPDATE_BY",
+                            "LAST_UPDATE_DATE",
+                            "PARTNER_ROLE_ID",
+                            "PARTNER_BANK_ID",
+                            "CONTACT_ID",
+                            "FILE_ID",
+                            "PROVINCE_CODE",
+                            "ESERVED"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PARTNER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "PARTNER_ID",
+                            "PRI_KEY",
+                            "BATCH_ID",
+                            "CHECK_STATE",
+                            "OPERATE_TYPE",
+                            "PARTNER_MDM_CODE",
+                            "PARTNER_TYPE",
+                            "PARTNER_NAME",
+                            "PARTNER_NAME_EN",
+                            "CORP_ALIAS",
+                            "ORGANIZATION_CODE",
+                            "LEGAL_REPRESENTATIVE",
+                            "COUNTRY",
+                            "PROVINCE_NAME",
+                            "CITY_NAME",
+                            "REG_ADDRESS",
+                            "PHONE_NUMBER",
+                            "FAX_NUMBER",
+                            "POST_CODE",
+                            "ORG_TYPE_CODE",
+                            "ENROLL_CODE",
+                            "ENROLL_DATE",
+                            "ENROLL_FUND",
+                            "CURRENCY_TYPE_CODE",
+                            "ORGCODE_START_DATE",
+                            "ORGCODE_END_DATE",
+                            "BUSS_TYPE_CODE",
+                            "ADMIN_ORG",
+                            "ADMIN_ORG_CODE",
+                            "IS_LISTED",
+                            "TAX_TYPE",
+                            "TAX_CODE",
+                            "LICENSE_CODE",
+                            "LICENSE_CODE_START",
+                            "LICENSE_CODE_END",
+                            "BUSS_SCOPE",
+                            "CORP_PORTAL",
+                            "CARD_TYPE_CODE",
+                            "STATUS",
+                            "PARENT_CODE",
+                            "CREATION_BY",
+                            "CREATE_DATE",
+                            "LAST_UPDATE_BY",
+                            "LAST_UPDATE_DATE",
+                            "PARTNER_ROLE_ID",
+                            "PARTNER_BANK_ID",
+                            "CONTACT_ID",
+                            "FILE_ID",
+                            "PROVINCE_CODE",
+                            "ESERVED"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PARTNER"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

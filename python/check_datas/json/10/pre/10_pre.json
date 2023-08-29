@@ -1,0 +1,115 @@
+{
+    "mysql": {
+        "order": {
+            "host": "10.124.157.42",
+            "user": "pre_xlszyzx_drds",
+            "password": "AA11bb22",
+            "db": "pre_xlszyzx_drds",
+            "tables": {
+                "RC_ORDER": "select count(1) from RC_ORDER_0520  ",
+                "RC_SALE": "select count(1) from RC_SALE_0520",
+                "RC_STOCK_DETAIL": "select count(1) from RC_STOCK_DETAIL_0520",
+                "RC_DEPOT_OPER": "select count(1) from RC_DEPOT_OPER_0520",
+                "RC_RES_DETAIL": "select count(1) from RC_RES_DETAIL_0520"
+            }
+        },
+        "stock": {
+            "host": "10.124.144.98",
+            "user": " test_zyzx_dres",
+            "password": "test_dres_8635",
+            "db": "test_zyzx_dres",
+            "tables": {
+                "RC_DEPOT_RES": "select count(1) from RC_DEPOT_RES_0520",
+                "RC_RES_EXT": "select count(1) from RC_RES_EXT_0520",
+                "RC_RES_TAC": "select count(1) from RC_RES_TAC_0520",
+                "RC_RESOURCE": "select count(1) from RC_RESOURCE_0520",
+                "RC_STOCK": "select count(1) from RC_STOCK_0520",
+                "RC_STOCK_EXT": "select count(1) from RC_STOCK_EXT_0520",
+                "RC_TERMINAL_CONSIG": "select count(1) from RC_TERMINAL_CONSIG_0520"
+            }
+        },
+        "param": {
+            "host": "10.124.158.186",
+            "user": "pre_manager",
+            "password": "aa11bb22",
+            "db": "pre_param",
+            "tables": {
+                "RC_DEPOT_AUTHORIZE": "SELECT count(1) FROM rc_depot_authorize_0520",
+                "RC_DEPOT_EFFECT": "select count(1) from rc_depot_effect_0520",
+                "RC_DEPOT": "select count(1)  from rc_depot_0520",
+                "RC_FACTORY": "select count(1) from RC_FACTORY_0520"
+            }
+        }
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "suffix":"_0520",
+        "tables": {
+            "RC_ORDER": "{}",
+            "RC_SALE": "{}",
+            "RC_STOCK_DETAIL": "{}",
+            "RC_DEPOT_OPER": "{}",
+            "RC_RES_DETAIL": "{}",
+            "RC_DEPOT_RES": "{}",
+            "RC_RES_EXT": "{}",
+            "RC_RES_TAC": "{}",
+            "RC_RESOURCE": "{}",
+            "RC_STOCK": "{}",
+            "RC_STOCK_EXT": "{}",
+            "RC_DEPOT_AUTHORIZE": "{}",
+            "RC_DEPOT": "{}",
+            "RC_FACTORY": "{}"
+        }
+    },
+    "oracle": {
+        "host": "10.245.31.40",
+        "user": "USER_10",
+        "password": "123123",
+        "sid": "xlsdb01",
+        "port": "8000",
+        "tables": {
+            "RC_ORDER": "select count(1) from RC_ORDER",
+            "RC_SALE": "select count(1) from RC_SALE",
+            "RC_STOCK_DETAIL": "select count(1) from RC_STOCK_DETAIL",
+            "RC_DEPOT_OPER": "select count(1) from RC_DEPOT_OPER",
+            "RC_RES_DETAIL": "select count(1) from RC_RES_DETAIL",
+            "RC_DEPOT_RES": "select count(1) from RC_DEPOT_RES",
+            "RC_RES_EXT": "select count(1) from RC_RES_EXT_T",
+            "RC_RES_TAC": "select count(1) from RC_RES_TAC_T",
+            "RC_RESOURCE": "select count(1) from RC_RESOURCE_T",
+            "RC_STOCK": "select count(1) from RC_STOCK",
+            "RC_STOCK_EXT": "select count(1) from RC_STOCK_EXT",
+            "RC_TERMINAL_CONSIG": "select count(1) from RC_TERMINAL_CONSIG",
+            "RC_DEPOT_AUTHORIZE": "select count(1) from RC_DEPOT_AUTHORIZE",
+            "RC_DEPOT_EFFECT": "select count(1) from RC_DEPOT_EFFECT",
+            "RC_DEPOT": "select count(1) from RC_DEPOT",
+            "RC_FACTORY": "select count(1) from RC_FACTORY_T"
+        }
+    },
+    "phoenix": {
+        "ischeck":0,
+        "queryserver": "http://10.191.46.71:8765/",
+        "tables": {
+            "RC_ORDER": "select count(1) from RC_ORDER",
+            "RC_SALE": "select count(1) from RC_SALE",
+            "RC_STOCK_DETAIL": "select count(1) from RC_STOCK_DETAIL",
+            "RC_DEPOT_OPER": "select count(1) from RC_DEPOT_OPER",
+            "RC_RES_DETAIL": "select count(1) from RC_RES_DETAIL",
+            "RC_DEPOT_RES": "select count(1) from RC_DEPOT_RES",
+            "RC_RES_EXT": "select count(1) from RC_RES_EXT_T",
+            "RC_RES_TAC": "select count(1) from RC_RES_TAC_T",
+            "RC_RESOURCE": "select count(1) from RC_RESOURCE_T",
+            "RC_STOCK": "select count(1) from RC_STOCK",
+            "RC_STOCK_EXT": "select count(1) from RC_STOCK_EXT",
+            "RC_TERMINAL_CONSIG": "select count(1) from RC_TERMINAL_CONSIG",
+            "RC_DEPOT_AUTHORIZE": "select count(1) from RC_DEPOT_AUTHORIZE",
+            "RC_DEPOT_EFFECT": "select count(1) from RC_DEPOT_EFFECT",
+            "RC_DEPOT": "select count(1) from RC_DEPOT",
+            "RC_FACTORY": "select count(1) from RC_FACTORY_T"
+        }
+    }
+}

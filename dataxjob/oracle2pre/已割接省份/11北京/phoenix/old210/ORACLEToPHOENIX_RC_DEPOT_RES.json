@@ -1,0 +1,88 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_11",
+						"password": "123123",
+                        "where": "",
+                        "column": [
+                            "TRDR_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "RS_NUM",
+                            "LOCK_NUM",
+                            "CONTRACT_NO",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "RECORD_DATE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RSNAME",
+                            "DEPOTNAME",
+                            "PROVINCENAME",
+                            "EPARCHYNAME",
+                            "TRDR_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "writeMode": "upsert",
+                        "username": "xlsZyzx",
+                        "password": "xlsZyzx123",
+                        "column": [
+                            "TRDR_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "RS_NUM",
+                            "LOCK_NUM",
+                            "CONTRACT_NO",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "RECORD_DATE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RS_NAME",
+                            "DEPOT_NAME",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.124.193.210:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

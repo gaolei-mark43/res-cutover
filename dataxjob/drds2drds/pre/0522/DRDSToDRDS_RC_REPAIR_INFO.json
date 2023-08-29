@@ -1,0 +1,73 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "SEQ_ID",
+                            "SUBSCRIBE_ID",
+                            "MATNR",
+                            "TERMINAL_ID",
+                            "CHANNEL_CODE",
+                            "STATUS",
+                            "RESERVE1",
+                            "RESERVE2"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_REPAIR_INFO"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "SEQ_ID",
+                            "SUBSCRIBE_ID",
+                            "MATNR",
+                            "TERMINAL_ID",
+                            "CHANNEL_CODE",
+                            "STATUS",
+                            "RESERVE1",
+                            "RESERVE2"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_REPAIR_INFO"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

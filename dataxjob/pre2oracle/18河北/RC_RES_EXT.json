@@ -1,0 +1,71 @@
+{
+ "job":  {
+        "setting": {
+            "speed": {
+                 "channel": 10
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.2
+            }
+        },
+        "content": [
+            {
+                "reader": { 
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "test_zyzx_dres",
+                        "password": "test_dres_8635",
+                        "column": [
+"TRRA_ID",
+"RS_ID",
+"EXT_CODE",
+"EXT_VALUE",
+"EXT_DESC",
+"SEQ_NO",
+"UPDATE_TIME",
+"EXT_VALUE_DESC"
+                                     ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RES_EXT"
+                                ],
+                                "jdbcUrl": [
+                                                       "jdbc:mysql://10.124.144.98:3306/test_zyzx_dres?useUnicode=true&characterEncoding=gbk"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "oraclewriter",
+                     "parameter": {
+                        "username": "USER_18",
+                        "password": "123123",
+                        "column": [
+"TRRA_ID",
+"RS_ID",
+"EXT_CODE",
+"EXT_VALUE",
+"EXT_DESC",
+"SEQ_NO",
+"UPDATE_TIME",
+"EXT_VALUE_DESC"
+
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl":"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01",
+                                "table": [
+                                    "RC_RES_EXT_TEMP"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+

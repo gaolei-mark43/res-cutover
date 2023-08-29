@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.245.32.95",
+        "user": "prod_zyzx_drsstock",
+        "password": "prod_drsstock_0258",
+        "db": "prod_zyzx_drsstock",
+        "deletetable": "RC_STOCK_EXT",
+        "sql_get": "SELECT trse_id FROM RC_STOCK_EXT  WHERE RS_IMEI IN (SELECT a.RS_IMEI FROM  RC_STOCK_EXT a, RC_STOCK b WHERE a.RS_IMEI =b.RS_IMEI AND b.PROVINCE_CODE in ('11'))",
+        "sql_del": "delete from RC_STOCK_EXT where trse_id in ({})",
+        "deletekey":"trse_id",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.191.41.9",
+        "port": 20000,
+        "db": "resprod",
+        "username": "resprod",
+        "password": "resprod123",
+        "deletetable": "rc_stock_ext",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "http://10.124.193.210:8765/",
+        "sql_del":"delete from RC_STOCK_EXT where ROW_KEY in ('{}')",
+        "is_delete":0
+    }
+}

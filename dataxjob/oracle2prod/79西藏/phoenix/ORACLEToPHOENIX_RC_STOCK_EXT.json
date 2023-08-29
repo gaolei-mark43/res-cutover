@@ -1,0 +1,72 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_79",
+                        "password": "br8ChrphylXwhkPX0ajhVA==",
+                        "where": "",
+                        "column": [
+                            "TRSE_ID",
+                            "RS_IMEI",
+                            "EXT_CODE",
+                            "EXT_VALUE",
+                            "EXT_DESC",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "TRSE_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_EXT"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "username": "test",
+                        "password": "test",
+                        "writeMode": "upsert",
+                        "column": [
+                            "TRSE_ID",
+                            "RS_IMEI",
+                            "EXT_CODE",
+                            "EXT_VALUE",
+                            "EXT_DESC",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_EXT"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.191.46.71:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

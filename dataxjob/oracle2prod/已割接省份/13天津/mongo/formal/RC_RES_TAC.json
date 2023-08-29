@@ -1,0 +1,118 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 8
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "oraclereader",
+					"parameter": {
+						"username": "USER_13",
+						"password": "123123",
+						"column": [
+							"TAC_ID",
+							"TAC_ID",
+							"RS_ID",
+							"TAC_CODE",
+							"VALID_FLAG",
+							"UPDATE_STAFF_ID",
+							"UPDATE_DEPART_ID",
+							"CREATE_TIME",
+							"UPDATE_TIME",
+							"REMARK"
+						],
+						"connection": [
+							{
+								"table": [
+									"RC_RES_TAC_T"
+								],
+								"jdbcUrl": [
+									"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+								]
+							}
+						]
+					}
+				},
+				"writer": {
+					"name": "mongodbwriter",
+					"parameter": {
+						"address": [
+                            "10.191.41.9:20000"
+                        ],
+                        "userName": "resprod",
+                        "userPassword": "resprod123",
+                        "dbName": "resprod",
+						"collectionName": "rc_res_tac",
+						"column": [
+							{
+								"name": "_id",
+								"type": "Long"
+							},
+							{
+								"name": "tacId",
+								"type": "Long"
+							},
+							{
+								"name": "rsId",
+								"type": "Long"
+							},
+							{
+								"name": "tacCode",
+								"type": "string"
+							},
+							{
+								"name": "validFlag",
+								"type": "string"
+							},
+							{
+								"name": "updateStaffId",
+								"type": "string"
+							},
+							{
+								"name": "updateDepartId",
+								"type": "string"
+							},
+							{
+								"name": "createTime",
+								"type": "date"
+							},
+							{
+								"name": "updateTime",
+								"type": "date"
+							},
+							{
+								"name": "remark",
+								"type": "string"
+							},
+							{
+								"name": "_class",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"transformer": [
+					{
+						"name": "dx_groovy",
+						"parameter": {
+							"code": "
+							Column column = record.getColumn(0);String oriValue = column.asString();record.setColumn(0, new LongColumn(oriValue));
+							Column col1 = record.getColumn(1);String ori1 = col1.asString();record.setColumn(1, new LongColumn(ori1));
+							Column col2 = record.getColumn(2);String ori2 = col2.asString();record.setColumn(2, new LongColumn(ori2));
+							record.setColumn(10, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.ResTacMongoPo')); 
+							return record;",
+							"extraPackage": []
+						}
+					}
+				]
+			}
+		]
+	}
+}

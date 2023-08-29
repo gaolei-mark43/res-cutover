@@ -1,0 +1,88 @@
+{
+ "job":  {
+        "setting": {
+            "speed": {
+                 "channel": 10
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.2
+            }
+        },
+        "content": [
+            {
+                "reader": { 
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "column": [
+"FACTORY_CODE",
+"FACTORY_CODE_NAME",
+"PLATFORM",
+"FACTORY_TYPE",
+"ADDRESS",
+"CONTACT_NAME",
+"CONTACT_TEL",
+"VALIDATE_FLAG",
+"UPDATE_DEPART_ID",
+"UPDATE_STAFF_ID",
+"UPDATE_TIME",
+"REMARK",
+"FACTORY_TYPE_DESC",
+ "PROVINCE_CODE",
+"PROVINCE_NAME",
+"PLATFORM_DESC"
+                                     ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_FACTORY"
+                                ],
+                                "jdbcUrl": [
+                                                       "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "oraclewriter",
+                     "parameter": {
+                        "username": "USER_30",
+                        "password": "123123",
+                        "column": [
+"FACTORY_CODE",
+"FACTORY_NAME",
+"PLATFORM",
+"FACTORY_TYPE",
+"ADDRESS",
+"CONTACT_NAME",
+"CONTACT_TEL",
+"VALIDATE_FLAG",
+"UPDATE_DEPART_ID",
+"UPDATE_STAFF_ID",
+"UPDATE_TIME",
+"REMARK",
+"FACTORY_TYPE_DESC",
+"PROVINCE_CODE",
+"PROVINCE_NAME",
+"PLATFORM_NAME"
+
+
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl":"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01",
+                                "table": [
+                                    "RC_FACTORY_TEMP"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+

@@ -1,0 +1,216 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 4
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "oraclereader",
+					"parameter": {
+						"username": "USER_11",
+						"password": "123123",
+						"column": [
+							"TORD_ID",
+							"TORD_ID",
+							"DEPOT_OPER_ID",
+							"orderid",
+							"rsid",
+							"ordernum",
+							"auditnum",
+							"realnum",
+							"updatestaffid",
+							"updatetime",
+							"rsname",
+							"restypecode",
+							"restypedesc",
+							"resbrandcode",
+							"resbranddesc",
+							"resmodelcode",
+							"resmodeldesc",
+							"updatestaffname",
+							"factorycode",
+							"factoryname",
+							"price",
+							"rs_id_out",
+							"CONTRACT_NO",
+							"ER_CODE",
+							"ORDER_ID_OUT",
+							"OMS_ID_OUT",
+							"OMS_ORDER_ITEM_ID",
+							"remark"
+						],
+						"splitPK": "TORD_ID",
+						"connection": [
+							{
+								"table": [
+									"rc_res_detail"
+								],
+								"jdbcUrl": [
+									"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+								]
+							}
+						]
+					}
+				},
+				"writer": {
+					"name": "mongodbwriter",
+					"parameter": {
+						"address": [
+                            "10.191.41.9:20000"
+                        ],
+                        "userName": "resprod",
+                        "userPassword": "resprod123",
+                        "dbName": "resprod",
+						"collectionName": "rc_res_detail",
+						"batchSize": 256,
+						"column": [
+							{
+								"name": "_id",
+								"type": "Long"
+							},
+							{
+								"name": "tordId",
+								"type": "Long"
+							},
+							{
+								"name": "depotOperId",
+								"type": "Long"
+							},
+							{
+								"name": "orderId",
+								"type": "Long"
+							},
+							{
+								"name": "rsId",
+								"type": "Long"
+							},
+							{
+								"name": "orderNum",
+								"type": "Long"
+							},
+							{
+								"name": "auditNum",
+								"type": "Long"
+							},
+							{
+								"name": "realNum",
+								"type": "Long"
+							},
+							{
+								"name": "updateStaffId",
+								"type": "string"
+							},
+							{
+								"name": "updateTime",
+								"type": "date"
+							},
+							{
+								"name": "rsName",
+								"type": "string"
+							},
+							{
+								"name": "resTypeCode",
+								"type": "string"
+							},
+							{
+								"name": "resTypeDesc",
+								"type": "string"
+							},
+							{
+								"name": "resBrandCode",
+								"type": "string"
+							},
+							{
+								"name": "resBrandDesc",
+								"type": "string"
+							},
+							{
+								"name": "resModelCode",
+								"type": "string"
+							},
+							{
+								"name": "resModelDesc",
+								"type": "string"
+							},
+							{
+								"name": "updateStaffName",
+								"type": "string"
+							},
+							{
+								"name": "factoryCode",
+								"type": "string"
+							},
+							{
+								"name": "factoryName",
+								"type": "string"
+							},
+							{
+								"name": "price",
+								"type": "Long"
+							},
+							{
+								"name": "rsIdOut",
+								"type": "string"
+							},
+							{
+								"name": "contractNo",
+								"type": "string"
+							},
+							{
+								"name": "erCode",
+								"type": "string"
+							},
+							{
+								"name": "orderIdOut",
+								"type": "string"
+							},
+							{
+								"name": "omsIdOut",
+								"type": "string"
+							},
+							{
+								"name": "omsOrderItemId",
+								"type": "string"
+							},
+							{
+								"name": "remark",
+								"type": "string"
+							},
+							{
+								"name": "_class",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"transformer": [
+					{
+						"name": "dx_groovy",
+						"parameter": {
+							"code": "
+							Column column = record.getColumn(0);String oriValue = column.asString();record.setColumn(0, new LongColumn(oriValue));
+							Column column1 = record.getColumn(1);String oriValue1 = column1.asString(); record.setColumn(1, new LongColumn(oriValue1));
+							Column col2 = record.getColumn(2);String ori2 = col2.asString();record.setColumn(2, new LongColumn(ori2));
+							Column col3 = record.getColumn(3);String ori3 = col3.asString();record.setColumn(3, new LongColumn(ori3));
+							Column col4 = record.getColumn(4);String ori4 = col4.asString();record.setColumn(4, new LongColumn(ori4));
+							Column col5 = record.getColumn(5);String ori5 = col5.asString();record.setColumn(5, new LongColumn(ori5));
+							Column col6 = record.getColumn(6);String ori6 = col6.asString();record.setColumn(6, new LongColumn(ori6));
+							Column col7 = record.getColumn(7);String ori7 = col7.asString();record.setColumn(7, new LongColumn(ori7));
+							Column col20 = record.getColumn(20);String ori20 = col20.asString(); record.setColumn(20, new LongColumn(ori20));
+							record.setColumn(28, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.ResDetailMongoPo'));  
+							return record;",
+							"extraPackage": []
+						}
+					}
+				]
+			}
+		]
+	}
+}

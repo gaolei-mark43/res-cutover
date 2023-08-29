@@ -1,0 +1,100 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 10
+      },
+      "errorLimit": {
+        "record": 10000000,
+        "percentage": 0.2
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "oraclereader",
+          "parameter": {
+            "username": "USER_81",
+            "password": "123123",
+            "column": [
+              "factory_code",
+              "factory_name",
+              "platform",
+              "factory_type",
+              "factory_type_desc",
+              "address",
+              "contact_name",
+              "contact_tel",
+              "validate_flag",
+              "update_depart_id",
+              "update_staff_id",
+              "update_time",
+              "remark",
+              "PLATFORM_NAME",
+              "PROVINCE_CODE",
+              "PROVINCE_NAME"
+
+            ],
+            "connection": [
+              {
+                "table": [
+                  "RC_FACTORY_T"
+                ],
+                "jdbcUrl": [
+                  "jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "replace",
+            "username": "pre_manager",
+            "password": "aa11bb22",
+            "column": [
+              "FACTORY_CODE",
+              "FACTORY_CODE_NAME",
+              "PLATFORM",
+              "FACTORY_TYPE",
+              "FACTORY_TYPE_DESC",
+              "ADDRESS",
+              "CONTACT_NAME",
+              "CONTACT_TEL",
+              "VALIDATE_FLAG",
+              "UPDATE_DEPART_ID",
+              "UPDATE_STAFF_ID",
+              "UPDATE_TIME",
+              "REMARK",
+              "PLATFORM_DESC",
+              "PROVINCE_CODE",
+              "PROVINCE_NAME"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8",
+                "table": [
+                  "rc_factory"
+                ]
+              }
+            ]
+          }
+        },
+        "transformer": [
+          {
+            "name": "dx_groovy",
+            "parameter": {
+              "code": "
+
+              record.setColumn(13, new StringColumn('联通自营'));
+              return record;",
+
+              "extraPackage":[]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

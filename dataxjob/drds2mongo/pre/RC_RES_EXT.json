@@ -1,0 +1,136 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 10
+		 
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "column": [
+
+                        	"trra_id",
+"trra_id",
+                            "rs_id",
+                            "ext_code",
+                            "ext_value",
+                            "ext_desc",
+                            "seq_no",
+                            "update_time",
+			    "ext_value_desc"
+                        ],
+			"splitPk": "TRRA_ID",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RES_EXT"
+                                ],
+                                "jdbcUrl": [
+									"jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mongodbwriter",
+		    "parameter": {
+                       "address": [
+                         "10.124.202.96:27017"
+                        ],
+			"userName": "",
+			"userPassword": "",
+			"dbName": "res-int",
+			"collectionName": "rc_res_ext",
+			"column": [
+			         {
+				    "name": "_id",
+				    "type": "Long"
+				 },
+                                 {
+                                    "name": "trraId",
+                                    "type": "Long"
+                                 },
+				 {
+				    "name": "rsId",
+				    "type": "Long"
+				 },
+				 {
+				    "name": "extCode",
+				    "type": "string"
+				 },
+				 {
+				    "name": "extValue",
+				    "type": "string"
+				 },
+				 {
+				    "name": "extDesc",
+				    "type": "string"
+				 },
+				 {
+				    "name": "seqNo",
+				    "type": "Long"
+				 },
+				 {
+				    "name": "updateTime",
+				    "type": "date"
+				 },
+				 {
+				    "name": "extValueDesc",
+				    "type": "string"
+				 },
+		
+				
+				 {
+				    "name": "_class",
+				    "type": "string"
+				 }
+
+			 ]
+		   }
+                },
+                "transformer": [
+		{
+			"name": "dx_groovy",
+			"parameter": {
+			    "code": "
+			    Column column = record.getColumn(0);
+			    String oriValue = column.asString();
+		        record.setColumn(0, new LongColumn(oriValue));
+
+		        Column col1 = record.getColumn(1);
+			    String ori1 = col1.asString();
+			    record.setColumn(1, new LongColumn(ori1));
+
+
+                        Column col2 = record.getColumn(2);
+                            String ori2 = col2.asString();
+                            record.setColumn(2, new LongColumn(ori2));
+
+				Column col6 = record.getColumn(6);
+			    String ori6 = col6.asString();
+			    record.setColumn(6, new LongColumn(ori6));
+
+
+			    record.setColumn(9, new StringColumn('com.chinaunicom.cb2.rc.depot.pojo.mongo.ResExtMongoPo')); 
+			    return record;",
+
+			    "extraPackage":[]
+			}
+		}
+		]
+            }
+        ]
+    }
+}
+

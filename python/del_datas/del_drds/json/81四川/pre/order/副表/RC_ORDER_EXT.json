@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.124.144.98",
+        "user": "test_zyzx_dresource",
+        "password": "test_dresource_8635",
+        "db": "test_zyzx_dresource",
+        "deletetable": "RC_ORDER_EXT",
+        "sql_get": "SELECT TOOE_ID from RC_ORDER_EXT where order_id in(SELECT a.order_id FROM RC_ORDER_EXT a ,RC_ORDER b WHERE a.order_id =b.order_id and b.PROVINCE_CODE in ('81'));",
+		"sql_del": "delete from RC_ORDER_EXT where TOOE_ID in ({})",
+        "deletekey":"TOOE_ID",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_order_ext",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "",
+        "sql_del":"",
+        "is_delete":0
+    }
+}

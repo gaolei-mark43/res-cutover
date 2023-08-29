@@ -1,0 +1,77 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "TRIS_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "LOCK_NUM",
+                            "LOCK_TYPE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "OPR_FLAG"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES_LOCK"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TRIS_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "LOCK_NUM",
+                            "LOCK_TYPE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "OPR_FLAG"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES_LOCK"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

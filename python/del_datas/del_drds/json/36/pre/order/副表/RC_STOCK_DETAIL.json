@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.124.157.42",
+        "user": "pre_xlszyzx_drds",
+        "password": "AA11bb22",
+        "db": "pre_xlszyzx_drds",
+        "deletetable": "RC_STOCK_DETAIL",
+        "sql_get": "SELECT  TOSD_ID from RC_STOCK_DETAIL where order_id in(SELECT a.order_id FROM RC_STOCK_DETAIL a ,RC_ORDER b WHERE a.order_id =b.order_id and b.PROVINCE_CODE in ('18'));",
+		"sql_del": "delete from RC_STOCK_DETAIL where TOSD_ID in ({})",
+        "deletekey":"TOSD_ID",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_stock_detail",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "",
+        "sql_del":"",
+        "is_delete":0
+    }
+}

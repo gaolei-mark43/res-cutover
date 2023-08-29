@@ -1,0 +1,144 @@
+
+---产商品信息=====以下语句执行需谨慎，避免删生产上数据=============================
+--不同省份需修改成不同的省份编码--
+
+truncate table USER_10.TF_PA_ACTIVITY;
+truncate table USER_10.TF_P_PRODUCT;
+truncate table USER_10.TD_R_TERMINAL_PROPTY;
+truncate table USER_10.TF_PA_ACTIVITY_RES;
+truncate table USER_10.TF_PA_ACTPROREF;
+truncate table USER_10.TF_PA_CON_LIMIT;
+truncate table USER_10.TF_P_PRODGROUPREF;
+truncate table USER_10.TF_P_PRODITEMREF;
+truncate table USER_10.TF_P_PRODITEM;
+truncate table USER_10.TD_M_MATMAC_REF;
+truncate table USER_10.TD_R_TML_PROPTY_PRICE;
+truncate table USER_10.TF_P_ITEMSREF;
+truncate table USER_10.TD_R_CODELIST;
+truncate table USER_10.TD_R_CODEOTHER;
+truncate table USER_10.TF_A_AGENT_MSG;
+truncate table USER_10.TD_A_AGENT_CHANNEL_RELA;
+====================================================================================
+--基础数据终端型号等信息
+=======删除语句在中间库以及3ge中心库都需执行一遍====================================
+truncate table RC_RESOURCE;
+truncate table RC_RES_TAC;
+truncate table RC_FACTORY;
+truncate table RC_RES_EXT;
+truncate table RC_DEPOT;
+truncate table RC_DEPOT_AUTHORIZE;
+truncate table RC_DEPOT_EFFECT;
+truncate table RC_DEPOT_RES;
+truncate table RC_ORDER;
+truncate table RC_SALE;
+truncate table RC_STOCK;
+truncate table RC_STOCK_EXT;
+truncate table RC_TERMINAL_CONSIG;
+truncate table RC_RES_DETAIL;
+truncate table RC_STOCK_DETAIL;
+truncate table rc_depot_oper;
+
+
+--------第一步:(中间库执行)
+INSERT into RC_RESOURCE select * from RC_RESOURCE_TEMP;
+INSERT into RC_RES_TAC select * from RC_RES_TAC_TEMP;
+INSERT into RC_FACTORY select * from RC_FACTORY_TEMP;
+INSERT into RC_RES_EXT select * from RC_RES_EXT_TEMP;
+
+---从资源中心库导入这几个表数据(中间库31.40主机)
+----注意数据库名（USER_51）基础数据都是一样的------
+cd /essdata
+rm -f base_temp1.dmp
+rm -f base_temp1.log
+--导出基础表
+expdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess DUMPFILE=base_temp1.dmp tables=USER_10.RC_RESOURCE,USER_10.RC_RES_TAC,USER_10.RC_FACTORY,USER_10.RC_RES_EXT logfile=base_temp.log version=10.2.0.4.0
+
+
+==83.9（essbak执行）=====
+--导入基础表到中间库
+cd /3gess/expdp
+scp oracle@10.245.31.40:/essdata/base_temp1.dmp  /3gess/expdp
+密码：oracle
+chmod 777 base_temp1.dmp
+impdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=expdp_zdd EXCLUDE=STATISTICS dumpfile=base_temp1.dmp REMAP_SCHEMA=USER_10:uqry_changq_ct remap_tablespace=RCMIDDLE:TBS_PARAM_DATA TABLE_EXISTS_ACTION=TRUNCATE
+
+
+-----执行下面的语句之前，需要将83.9主机上所有的编码修改一下，先修改成UTF-8，保存，在修改成ANSI，保存----------
+cd zdd
+nohup /3gess/expdp/zdd/rc_all51.sh &   !!!!!!!!!!!注意：需要修改省份!!!!!!!!!!!!!!!!!!!!!!
+tail -f nohup.out  --查询进度
+
+ 
+
+-----第四步:上面所有的脚本都完成之后从3GE生产导出数据
+---在83.9上执行---
+
+-----多个省执行以下四个语句(导出到中间库31.40)------
+cd /3gess/expdp
+
+rm -f rc_base1.dmp
+rm -f province1.dmp
+rm -f noprovince1.dmp
+
+rm -f product1.dmp
+
+expdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=expdp_zdd DUMPFILE=rc_base1.dmp tables=uqry_changq_ct.RC_RESOURCE,uqry_changq_ct.RC_RES_TAC,uqry_changq_ct.RC_FACTORY,uqry_changq_ct.RC_RES_EXT logfile=rc_base.log 
+
+expdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=EXPDP2 DUMPFILE=province1.dmp tables=uqry_changq_ct.RC_DEPOT,uqry_changq_ct.RC_DEPOT_RES,uqry_changq_ct.RC_STOCK,uqry_changq_ct.RC_TERMINAL_CONSIG,uqry_changq_ct.RC_ORDER,uqry_changq_ct.RC_SALE,uqry_changq_ct.rc_depot_oper logfile=province.log 
+
+expdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=EXPDP2 DUMPFILE=noprovince1.dmp tables=uqry_changq_ct.RC_DEPOT_AUTHORIZE,uqry_changq_ct.RC_STOCK_EXT,uqry_changq_ct.RC_RES_DETAIL, uqry_changq_ct.RC_STOCK_DETAIL logfile=noprovince.log 
+
+expdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=expdp_zdd  DUMPFILE=product1.dmp tables=ucr_sysmanm.TF_PA_ACTIVITY,ucr_sysmanm.TF_P_PRODUCT,ucr_sysmanm.TD_R_TERMINAL_PROPTY,ucr_sysmanm.TF_PA_ACTIVITY_RES,ucr_sysmanm.TF_PA_ACTPROREF,UCR_SYSMANM.TF_PA_CON_LIMIT,UCR_SYSMANM.TF_P_PRODGROUPREF,UCR_SYSMANM.TF_P_PRODITEMREF,UCR_SYSMANM.TF_P_PRODITEM,UCR_SYSMANM.TD_M_MATMAC_REF,UCR_SYSMANM.TD_R_TML_PROPTY_PRICE,UCR_SYSMANM.TF_P_ITEMSREF,UCR_SYSMANM.TD_R_MACHINE_TYPE,UCR_SYSMANM.TD_R_TERMINAL_MODEL,UCR_SYSMANM.TD_R_TERMINAL_BRAND,UCR_SYSMANM.TD_R_CODELIST,UCR_SYSMANM.TD_R_CODEOTHER logfile=product.log 
+
+
+expdp UDBA/Y0oZRY5k9w@essdb31 DIRECTORY=expdp_zdd  DUMPFILE=product2.dmp tables=UCR_CHANNEL.TF_A_AGENT_MSG,UCR_CHANNEL.TD_A_AGENT_CHANNEL_RELA logfile=product.log 
+
+
+----第五步:上传文件到中间库（83.9上essbak）
+
+============上面四个命令执行过后，权限要变成essbak后，在执行以下两句=============
+
+--注意*.dmp，*由第四步中的文件
+rm -f rc_base1.dmp
+rm -f province1.dmp
+rm -f noprovince1.dmp
+
+rm -f product1.dmp
+scp /3gess/expdp/*.dmp oracle@10.245.31.40:/essdata
+密码:oracle
+
+
+
+----------第六步:将数据导入中间库（31.40主机）
+
+-------------在31.40，多个省执行以下五个语句(注意后面的省份编码USER_51)---------------
+===导入中间库分省导入，省份51
+impdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess EXCLUDE=STATISTICS  full=y dumpfile=rc_base1.dmp  REMAP_SCHEMA=uqry_changq_ct:USER_10  logfile=rc_stock.log TABLE_EXISTS_ACTION=TRUNCATE
+
+impdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess EXCLUDE=STATISTICS full=y dumpfile=noprovince1.dmp  REMAP_SCHEMA=uqry_changq_ct:USER_10 logfile=noprovince.log TABLE_EXISTS_ACTION=TRUNCATE QUERY=\"where remark like \'%-51\'\"
+
+impdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess EXCLUDE=STATISTICS full=y dumpfile=province1.dmp  REMAP_SCHEMA=uqry_changq_ct:USER_10 logfile=province.log TABLE_EXISTS_ACTION=TRUNCATE QUERY=\"where province_code='51'\"
+
+
+impdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess  EXCLUDE=STATISTICS  full=y dumpfile=product1.dmp REMAP_SCHEMA=ucr_sysmanm:USER_10 logfile=product.log TABLE_EXISTS_ACTION=TRUNCATE
+
+impdp usr_cut/usrcut@xlsdb01 DIRECTORY=impd_ess EXCLUDE=STATISTICS full=y dumpfile=product2.dmp REMAP_SCHEMA=UCR_CHANNEL:USER_10 logfile=agent.log TABLE_EXISTS_ACTION=TRUNCATE
+
+
+
+
+------最后一步，导入失效仓库，分别在分省的库执行（USER_11）--
+insert into RC_DEPOT_EFFECT
+select * from RC_DEPOT t where t.STATE='1';
+commit;
+
+delete from RC_DEPOT t where t.STATE='1';
+commit;
+
+
+
+------------------------------------------------所有语句执行完毕------------------------------------------------------------------------------------------------
+
+
+
+

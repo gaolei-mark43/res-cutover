@@ -1,0 +1,106 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_81",
+						"password": "123123",
+                        "where": "",
+                        "column": [
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "DEPOT_TYPE",
+                            "DEPOT_LEVEL",
+                            "DEPOT_ADDRE",
+                            "SUP_DEPOT_ID",
+                            "LON",
+                            "LAT",
+                            "CONTACT_NAME",
+                            "CONTACT_TEL",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "DEPART_ID",
+                            "STATE",
+                            "UPDATE_TIME",
+                            "CHNL_CODE",
+                            "REMARK",
+                            "PROVINCENAME",
+                            "EPARCHYNAME",
+                            "CITYNAME",
+                            "DEPARTNAME",
+                            "DEPOTTYPEDESC",
+                            "CHNLNAME",
+                            "DEPOT_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "writeMode": "upsert",
+                        "username": "xlsZyzx",
+                        "password": "xlsZyzx123",
+                        "column": [
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "DEPOT_TYPE",
+                            "DEPOT_LEVEL",
+                            "DEPOT_ADDRE",
+                            "SUP_DEPOT_ID",
+                            "LON",
+                            "LAT",
+                            "CONTACT_NAME",
+                            "CONTACT_TEL",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "DEPART_ID",
+                            "STATE",
+                            "UPDATE_TIME",
+                            "CHNL_CODE",
+                            "REMARK",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "CITY_NAME",
+                            "DEPART_NAME",
+                            "DEPOT_TYPE_DESC",
+                            "CHNL_NAME",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.124.193.210:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

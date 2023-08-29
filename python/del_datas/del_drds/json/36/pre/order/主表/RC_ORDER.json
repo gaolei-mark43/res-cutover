@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.124.157.42",
+        "user": "pre_xlszyzx_drds",
+        "password": "AA11bb22",
+        "db": "pre_xlszyzx_drds",
+        "deletetable": "RC_ORDER",
+        "sql_get": "SELECT ORDER_ID FROM RC_ORDER WHERE PROVINCE_CODE IN ('18');",
+		"sql_del": "delete from RC_ORDER where ORDER_ID in ({})",
+        "deletekey":"ORDER_ID",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_order",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "",
+        "sql_del":"",
+        "is_delete":0
+    }
+}

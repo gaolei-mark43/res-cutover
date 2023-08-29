@@ -1,0 +1,123 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "COMM_ID",
+                            "COMM_NAME",
+                            "COMM_TYPE",
+                            "COMM_CODE",
+                            "BRAND_ID",
+                            "MARKET_PRICE",
+                            "COMM_DIVIDE",
+                            "DESCRIPTION",
+                            "DETAIL",
+                            "DETAIL_URL",
+                            "PROVIDER_ID",
+                            "BELONG_PLATFORM",
+                            "BELONG_STOCK",
+                            "STATE",
+                            "REMARK",
+                            "CREATE_STAFF_ID",
+                            "CREATE_TIME",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "MODEL_CODE",
+                            "KEY_WORD",
+                            "COMM_ORDER",
+                            "IS_SELF",
+                            "COMM_BIGTYPE",
+                            "BAR_CODE",
+                            "COST_PRICE",
+                            "PROVINCE_CODE",
+                            "COMM_RATE",
+                            "RELATION_TYPE_CODE",
+                            "COMP_TYPE",
+                            "RSRV_STR1",
+                            "RSRV_STR2",
+                            "RSRV_STR3"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "TD_CO_COMMODITY"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "COMM_ID",
+                            "COMM_NAME",
+                            "COMM_TYPE",
+                            "COMM_CODE",
+                            "BRAND_ID",
+                            "MARKET_PRICE",
+                            "COMM_DIVIDE",
+                            "DESCRIPTION",
+                            "DETAIL",
+                            "DETAIL_URL",
+                            "PROVIDER_ID",
+                            "BELONG_PLATFORM",
+                            "BELONG_STOCK",
+                            "STATE",
+                            "REMARK",
+                            "CREATE_STAFF_ID",
+                            "CREATE_TIME",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "MODEL_CODE",
+                            "KEY_WORD",
+                            "COMM_ORDER",
+                            "IS_SELF",
+                            "COMM_BIGTYPE",
+                            "BAR_CODE",
+                            "COST_PRICE",
+                            "PROVINCE_CODE",
+                            "COMM_RATE",
+                            "RELATION_TYPE_CODE",
+                            "COMP_TYPE",
+                            "RSRV_STR1",
+                            "RSRV_STR2",
+                            "RSRV_STR3"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "TD_CO_COMMODITY"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

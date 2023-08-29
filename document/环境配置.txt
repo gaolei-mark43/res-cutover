@@ -1,0 +1,18 @@
+环境配置：
+1.用户口令（中间库密码180天失效期）：
+中间库1:
+xlsdb01=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=8000))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XLSDB01)))
+中间库数据库用户 usr_cut，密码是 usrcut
+中间库2:
+xlsdb02=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.41)(PORT=8000))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XLSDB02)))
+中间库数据库用户 usr_cut，密码是 usrcut123
+
+2.datax主机：   
+pre:
+10.124.163.21(联调环境的虚机；资源中心割接不再使用) deployer/Hk@2019er
+10.124.163.22(联调环境的虚机；资源中心割接不再使用；产商品中心使用) deployer/Hk@2019er
+10.124.202.101(联调环境的物理机) deployer/Hk@2019er
+prod:
+10.191.212.178(生产环境的物理机)  deployer/De@2018er
+10.191.212.179(生产环境的物理机)  deployer/De@2018er
+10.245.31.41(生产环境的物理机)  deployer/De@2018er

@@ -1,0 +1,186 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_84",
+                        "password": "123123",
+                        "where": "",
+                        "column": [
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "UPDATE_DEPART",
+                            "UPDATE_DEPART_NAME",
+                            "UPDATE_STAFF",
+                            "UPDATE_STAFF_NAME",
+                            "PLATFORM_NAME",
+                            "MANAGE_TYPE",
+                            "MANAGE_TYPE_DESC",
+                            "RES_PRODUCER",
+                            "RES_PRODUCER_NAME",
+                            "BARCODE",
+                            "START_TIME",
+                            "END_TIME",
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "DRECOMMEND_ID",
+                            "RECOMMEND_NAME",
+                            "RECOMMEND_NUMBER",
+                            "RECOM_DEPART_ID",
+                            "ORDER_ID",
+                            "TRADE_ID",
+                            "OLD_TRADE_ID",
+                            "SYS_CODE",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_CODE",
+                            "EPARCHY_NAME",
+                            "CITY_CODE",
+                            "CITY_NAME",
+                            "TRADE_TYPE",
+                            "TRADE_TYPE_NAME",
+                            "ACTIVITY_TYPE",
+                            "ACTIVITY_ID",
+                            "TELEPHONE",
+                            "SALE_TIME",
+                            "CHANNEL_CODE",
+                            "CHANNEL_NAME",
+                            "CHANNEL_TYPE",
+                            "IS_TRANS_CHANNEL",
+                            "DEPART_ID",
+                            "DEPARTNAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "RS_ID",
+                            "PLATFORM",
+                            "SALE_NUM",
+                            "RS_IMEI",
+                            "RS_IMEI_ORG",
+                            "SALE_PRICE",
+                            "CANCEL_TAG",
+                            "UPDATE_TIME",
+                            "SEND_FLAG",
+                            "HAS_TML_FLAG",
+                            "SELF_TML_FLAG",
+                            "REMARK",
+                            "CONSIG_CREATE_FLAG",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "ORDER_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_SALE"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "username": "test",
+                        "password": "test",
+                        "writeMode": "upsert",
+                        "column": [
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "UPDATE_DEPART",
+                            "UPDATE_DEPART_NAME",
+                            "UPDATE_STAFF",
+                            "UPDATE_STAFF_NAME",
+                            "PLATFORM_NAME",
+                            "MANAGE_TYPE",
+                            "MANAGE_TYPE_DESC",
+                            "RES_PRODUCER",
+                            "RES_PRODUCER_NAME",
+                            "BARCODE",
+                            "START_TIME",
+                            "END_TIME",
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "DRECOMMEND_ID",
+                            "RECOMMEND_NAME",
+                            "RECOMMEND_NUMBER",
+                            "RECOM_DEPART_ID",
+                            "ORDER_ID",
+                            "TRADE_ID",
+                            "OLD_TRADE_ID",
+                            "SYS_CODE",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_CODE",
+                            "EPARCHY_NAME",
+                            "CITY_CODE",
+                            "CITY_NAME",
+                            "TRADE_TYPE",
+                            "TRADE_TYPE_NAME",
+                            "ACTIVITY_TYPE",
+                            "ACTIVITY_ID",
+                            "TELEPHONE",
+                            "SALE_TIME",
+                            "CHANNEL_CODE",
+                            "CHANNEL_CODE_NAME",
+                            "CHANNEL_TYPE",
+                            "IS_TRANS_CHANNEL",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "RS_ID",
+                            "PLATFORM",
+                            "SALE_NUM",
+                            "RS_IMEI",
+                            "RS_IMEI_ORG",
+                            "SALE_PRICE",
+                            "CANCEL_TAG",
+                            "UPDATE_TIME",
+                            "SEND_FLAG",
+                            "HAS_TML_FLAG",
+                            "SELF_TML_FLAG",
+                            "REMARK",
+                            "CONSIG_CREATE_FLAG",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_SALE"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.191.46.71:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

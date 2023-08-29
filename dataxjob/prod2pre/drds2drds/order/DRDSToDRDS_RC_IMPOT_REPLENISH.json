@@ -1,0 +1,103 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "PRI_KEY",
+                            "ORDER_ID",
+                            "BATCH_ID",
+                            "PUSH_STATE",
+                            "SOURCE_SYSTEM_ID",
+                            "SOURCE_SYSTEM_NAME",
+                            "USER_ID",
+                            "USER_NAME",
+                            "SUBMIT_DATE",
+                            "PROVINCE_CODE",
+                            "CITY_ID",
+                            "ENVIRONMENT_NAME",
+                            "CREATION_DATE",
+                            "PAGE_SIZE",
+                            "CURRENT_PAGE",
+                            "TOTAL_RECORD",
+                            "DESCREPTION",
+                            "RESERVED_1",
+                            "RESERVED_2",
+                            "RESERVED_3",
+                            "RESERVED_4",
+                            "RESERVED_5",
+                            "RESERVED_6"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_IMPOT_REPLENISH"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "PRI_KEY",
+                            "ORDER_ID",
+                            "BATCH_ID",
+                            "PUSH_STATE",
+                            "SOURCE_SYSTEM_ID",
+                            "SOURCE_SYSTEM_NAME",
+                            "USER_ID",
+                            "USER_NAME",
+                            "SUBMIT_DATE",
+                            "PROVINCE_CODE",
+                            "CITY_ID",
+                            "ENVIRONMENT_NAME",
+                            "CREATION_DATE",
+                            "PAGE_SIZE",
+                            "CURRENT_PAGE",
+                            "TOTAL_RECORD",
+                            "DESCREPTION",
+                            "RESERVED_1",
+                            "RESERVED_2",
+                            "RESERVED_3",
+                            "RESERVED_4",
+                            "RESERVED_5",
+                            "RESERVED_6"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_IMPOT_REPLENISH"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

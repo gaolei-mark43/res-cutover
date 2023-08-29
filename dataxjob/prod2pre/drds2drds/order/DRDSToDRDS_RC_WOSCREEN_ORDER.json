@@ -1,0 +1,99 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "SUBSCRIBE_ID",
+                            "OLD_SUBSCRIBE_ID",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "BUSINESS_HALL_ID",
+                            "BUSINESS_HALL_DES",
+                            "STAFF_ID",
+                            "SERVICE_TYPE",
+                            "TERMINAL_CODE",
+                            "TERMINAL_PROPERTY_CODE",
+                            "TERMINAL_PROPERTY_DES",
+                            "TEL_NUMBER",
+                            "TERMINAL_COST_PRICE",
+                            "PRODUCT_ID",
+                            "SELL_DATE",
+                            "OPER_TAG",
+                            "EXTRA_INFO1",
+                            "EXTRA_INFO3",
+                            "EXTRA_INFO2",
+                            "EXTRA_INFO4",
+                            "EXTRA_INFO5"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_WOSCREEN_ORDER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "SUBSCRIBE_ID",
+                            "OLD_SUBSCRIBE_ID",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "BUSINESS_HALL_ID",
+                            "BUSINESS_HALL_DES",
+                            "STAFF_ID",
+                            "SERVICE_TYPE",
+                            "TERMINAL_CODE",
+                            "TERMINAL_PROPERTY_CODE",
+                            "TERMINAL_PROPERTY_DES",
+                            "TEL_NUMBER",
+                            "TERMINAL_COST_PRICE",
+                            "PRODUCT_ID",
+                            "SELL_DATE",
+                            "OPER_TAG",
+                            "EXTRA_INFO1",
+                            "EXTRA_INFO3",
+                            "EXTRA_INFO2",
+                            "EXTRA_INFO4",
+                            "EXTRA_INFO5"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_WOSCREEN_ORDER"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

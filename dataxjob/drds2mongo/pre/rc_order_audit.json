@@ -1,0 +1,163 @@
+{
+    "job": 
+         {
+        "setting": {
+            "speed": {
+                 "channel": 2
+                 
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        
+                        "column": [
+"TOOA_ID",
+"TOOA_ID",
+"ORDER_ID",
+"AUDIT_STATE",
+"AUDIT_STATE_DESC",
+"AUDIT_SEQ",
+"AUDIT_DEPART_ID",
+"AUDIT_DEPART_NAME",
+"AUDIT_STAFF_ID",
+"AUDIT_STAFF_NAME",
+"AUDIT_EXPLAIN",
+"AUDIT_TIME",
+"ORDER_TYPE",
+"ORDER_TYPE_DESC",
+"AUDIT_CHNL_CODE",
+"REMARK"
+
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER_AUDIT"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mongodbwriter",
+                    "parameter": {
+                       "address": [
+                         "10.124.202.96:27017"
+                        ],
+                        "userName": "",
+                        "userPassword": "",
+                        "dbName": "res-int",
+                        "collectionName": "rc_order_audit",
+                        "column": [
+{
+                                    "name": "_id",
+                                    "type": "Long"
+                                 }, 
+								 {
+                                    "name": "tooaId",
+                                    "type": "Long"
+                                 }, 
+                                                                 {
+                                    "name": "orderId",
+                                    "type": "Long"
+                                 }, 
+                                                                 {
+                                    "name": "auditState",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditStateDesc",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditSeq",
+                                    "type": "Long"
+                                 }, 
+                                                                 {
+                                    "name": "auditDepartId",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditDepartName",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditStaffId",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditStaffName",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditExplain",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditTime",
+                                    "type": "date"
+                                 }, 
+                                                                 {
+                                    "name": "orderType",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "orderTypeDesc",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "auditChnlCode",
+                                    "type": "string"
+                                 }, 
+                                                                 {
+                                    "name": "remark",
+                                    "type": "string"
+                                 }                                 
+
+                         ]
+                   }
+                },
+                "transformer": [
+                {
+                        "name": "dx_groovy",
+                        "parameter": {
+                            "code": "
+                             Column column = record.getColumn(0);
+                            String oriValue = column.asString();
+                            record.setColumn(0, new LongColumn(oriValue));
+
+                            Column col1 = record.getColumn(1);
+                            String ori1 = col1.asString();
+                            record.setColumn(1, new LongColumn(ori1));
+
+                            Column co2 = record.getColumn(2);
+                            String ori2 = co2.asString();
+                            record.setColumn(2, new LongColumn(ori2));
+                            
+                            Column co5 = record.getColumn(5);
+                            String ori5 = co5.asString();
+                            record.setColumn(5, new LongColumn(ori5));
+							
+							
+                            return record;",
+
+                            "extraPackage":[]
+                        }
+                }
+                ]
+            }
+        ]
+    }
+}

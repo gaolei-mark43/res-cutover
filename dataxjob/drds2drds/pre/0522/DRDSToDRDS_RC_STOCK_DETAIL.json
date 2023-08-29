@@ -1,0 +1,93 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "TOSD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "CONTRACT_NO",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "RSNUM",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_DETAIL"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TOSD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "CONTRACT_NO",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "RSNUM",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_DETAIL"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

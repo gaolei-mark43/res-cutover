@@ -1,0 +1,30 @@
+{
+    "mysql": {
+        "host": "10.124.144.98",
+        "user": "test_zyzx_dres",
+        "password": "test_dres_8635",
+        "db": "test_zyzx_dres",
+        "deletetable": "RC_STOCK",
+        "sql_get": "SELECT rs_imei FROM RC_TERMINAL_CONSIG WHERE PROVINCE_CODE IN('17');",
+        "sql_del": "delete from RC_TERMINAL_CONSIG  where rs_imei in ({})",
+        "deletekey":"rs_imei",
+        "is_delete":1,
+        "betch_size":20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "",
+        "sql":"{'_id': {'$in':datas}}",
+        "is_delete":0
+    },
+    "phoenix": {
+        "url": "http://10.124.193.210:8765/",
+        "sql_del":"delete from  where ROW_KEY in ('{}')",
+        "is_delete":0,
+        "betch_size":500
+    }
+}

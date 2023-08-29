@@ -1,0 +1,198 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 2
+		 
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+               "reader": {
+                  "name": "mysqlreader",
+                  "parameter": {
+                      "username": "pre_manager",
+                      "password": "aa11bb22",
+                      
+                      "column": [
+                          "DEPOT_ID",
+			"DEPOT_ID",
+                          "DEPOT_NAME",
+                          "DEPOT_TYPE",
+                          "DEPOT_LEVEL",
+                          "DEPOT_ADDRE",
+                          "SUP_DEPOT_ID",
+                          "LON",
+                          "LAT",
+                          "CONTACT_NAME",
+                          "CONTACT_TEL",
+                          "PROVINCE_CODE",
+                          "EPARCHY_CODE",
+                          "CITY_CODE",
+                          "DEPART_ID",
+                          "STATE",
+                          "UPDATE_TIME",
+                          "REMARK",
+                          "CHNL_CODE",
+                          "PROVINCE_NAME",
+                          "EPARCHY_NAME",
+                          "DEPART_NAME",
+                          "CITY_NAME",
+                          "CHNL_NAME",
+                          "DEPOT_TYPE_DESC"
+                      ],
+                      "connection": [
+                          {
+                              "table": [
+                                  "RC_DEPOT"
+                              ],
+                              "jdbcUrl": [
+                                  "jdbc:mysql://10.124.158.186:3306/pre_param?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                              ]
+                          }
+                      ]
+                  }
+              },
+               "writer": {
+                    "name": "mongodbwriter",
+		    "parameter": {
+                       "address": [
+                          "10.124.202.96:27017"
+                        ],
+			"userName": "",
+			"userPassword": "",
+			"dbName": "res-int",
+			"collectionName": "rc_depot",
+			"column": [
+				                                 {
+                                    "name": "_id",
+                                    "type": "string"
+                                 },
+{
+                                    "name": "depotId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotType",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotLevel",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotAddre",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "supDepotId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "lon",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "lat",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "contactName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "contactTel",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "provinceCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "eparchyCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "cityCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "departId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "state",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateTime",
+                                    "type": "date"
+                                 },
+								 {
+                                    "name": "remark",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "chnlCode",
+                                    "type": "string"
+                                 },
+                                 
+                                 {
+                                    "name": "provinceName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "eparchyName",
+                                    "type": "string"
+                                 },
+								 {
+                                    "name": "departName",
+                                    "type": "string"
+                                 },
+                                  {
+                                    "name": "cityName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "chnlName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotTypeDesc",
+                                    "type": "string"
+                                 },
+                                 
+                                 {
+                                    "name": "_class",
+                                    "type": "string"
+                                 }
+				   
+			 ]
+		   }
+                },
+                "transformer": [
+		{
+			"name": "dx_groovy",
+			"parameter": {
+			    "code": "
+			
+			    record.setColumn(25, new StringColumn('com.chinaunicom.cb2.rc.base.pojo.mongo.DepotMongoPo')); 
+			    return record;",
+
+			    "extraPackage":[]
+			}
+		}
+		]
+            }
+        ]
+    }
+}
+

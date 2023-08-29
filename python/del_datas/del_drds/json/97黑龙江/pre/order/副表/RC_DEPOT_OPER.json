@@ -1,0 +1,29 @@
+{
+    "mysql": {
+        "host": "10.124.157.42",
+        "user": "pre_xlszyzx_drds",
+        "password": "AA11bb22",
+        "db": "pre_xlszyzx_drds",
+        "deletetable": "RC_DEPOT_OPER",
+        "sql_get": "SELECT OPER_ID from RC_DEPOT_OPER where PROVINCE_CODE in ('97');",
+		"sql_del": "delete from RC_DEPOT_OPER where OPER_ID in ({})",
+        "deletekey":"OPER_ID",
+        "is_delete":1,
+        "betch_size": 20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_depot_oper",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "",
+        "sql_del":"",
+        "is_delete":0
+    }
+}

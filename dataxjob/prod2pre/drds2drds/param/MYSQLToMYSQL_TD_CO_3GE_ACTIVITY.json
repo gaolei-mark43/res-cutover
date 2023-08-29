@@ -1,0 +1,149 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "ACTIVITY_ID",
+                            "ACTIVITY_CODE",
+                            "ACTIVITY_NAME",
+                            "ACTIVITY_TYPE",
+                            "ACTIVITY_SCHEME_ID",
+                            "ACTIVITY_DESC",
+                            "ACTIVITY_PROTPER",
+                            "STOREDFEE",
+                            "PRESENETEDFEE",
+                            "THAWPRO",
+                            "THAWMON",
+                            "TOTALSALEFEE",
+                            "MONTHLOWESTFEE",
+                            "DEPFEE",
+                            "ALLOWANCEFEE",
+                            "ACTIVITY_SYSTYPE",
+                            "RESOUCE_TAG",
+                            "CON_NUM_ID",
+                            "LOCKED_FLAG",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "SALE_CHANNEL",
+                            "SALE_OBJECT",
+                            "SALE_AREA",
+                            "VERSION",
+                            "CREATE_DATE",
+                            "EFFECT_DATE",
+                            "EXPIRE_DATE",
+                            "STATUS_CODE",
+                            "STATUS_TIME",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RSVALUE1",
+                            "RSVALUE2",
+                            "RSVALUE3",
+                            "RES_TML_TYPE",
+                            "FST_RTN_FEE",
+                            "ORDER_SEQ",
+                            "RES_TML_SUBTYPE",
+                            "SHOULDPAY_STOREFEE",
+                            "TRADE_SUBTYPE",
+                            "TRADE_DESCRIB",
+                            "CONTRACT_TYPE",
+                            "FREEDOMSTOREFEE"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "TD_CO_3GE_ACTIVITY"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "ACTIVITY_ID",
+                            "ACTIVITY_CODE",
+                            "ACTIVITY_NAME",
+                            "ACTIVITY_TYPE",
+                            "ACTIVITY_SCHEME_ID",
+                            "ACTIVITY_DESC",
+                            "ACTIVITY_PROTPER",
+                            "STOREDFEE",
+                            "PRESENETEDFEE",
+                            "THAWPRO",
+                            "THAWMON",
+                            "TOTALSALEFEE",
+                            "MONTHLOWESTFEE",
+                            "DEPFEE",
+                            "ALLOWANCEFEE",
+                            "ACTIVITY_SYSTYPE",
+                            "RESOUCE_TAG",
+                            "CON_NUM_ID",
+                            "LOCKED_FLAG",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "SALE_CHANNEL",
+                            "SALE_OBJECT",
+                            "SALE_AREA",
+                            "VERSION",
+                            "CREATE_DATE",
+                            "EFFECT_DATE",
+                            "EXPIRE_DATE",
+                            "STATUS_CODE",
+                            "STATUS_TIME",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RSVALUE1",
+                            "RSVALUE2",
+                            "RSVALUE3",
+                            "RES_TML_TYPE",
+                            "FST_RTN_FEE",
+                            "ORDER_SEQ",
+                            "RES_TML_SUBTYPE",
+                            "SHOULDPAY_STOREFEE",
+                            "TRADE_SUBTYPE",
+                            "TRADE_DESCRIB",
+                            "CONTRACT_TYPE",
+                            "FREEDOMSTOREFEE"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "TD_CO_3GE_ACTIVITY"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

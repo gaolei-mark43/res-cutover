@@ -1,0 +1,117 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "TRADE_ID",
+                            "RS_IMEI",
+                            "TRADE_TYPE",
+                            "OPERATE_ID",
+                            "EPARCHY_CODE",
+                            "CHANNEL_ID",
+                            "CHANNEL_TYPE",
+                            "TERMSTATE",
+                            "PHONE_NUM",
+                            "IS_SELF",
+                            "OLD_RS_IMEI",
+                            "PROVINCE",
+                            "RESOURCE_NUM",
+                            "RESOURCE_TYPE",
+                            "SUB_RESOURCE_TYPE",
+                            "ACCEPT_TIME",
+                            "ACTIVE_TYPE",
+                            "RECOMMEND_ID",
+                            "RECOMMEND_NAME",
+                            "RECOMMEND_PHONE",
+                            "AUDIT_TAG",
+                            "DEAL_TAG",
+                            "DEAL_RESULT",
+                            "DATE_TIME",
+                            "CHECK_ID",
+                            "RECOMMEND_DEPARTID",
+                            "SYS_CODE",
+                            "YCMP_PFEE",
+                            "PURCHASE_FEE",
+                            "PRODUCT_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_CBSSTML_CHECK_LOG"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TRADE_ID",
+                            "RS_IMEI",
+                            "TRADE_TYPE",
+                            "OPERATE_ID",
+                            "EPARCHY_CODE",
+                            "CHANNEL_ID",
+                            "CHANNEL_TYPE",
+                            "TERMSTATE",
+                            "PHONE_NUM",
+                            "IS_SELF",
+                            "OLD_RS_IMEI",
+                            "PROVINCE",
+                            "RESOURCE_NUM",
+                            "RESOURCE_TYPE",
+                            "SUB_RESOURCE_TYPE",
+                            "ACCEPT_TIME",
+                            "ACTIVE_TYPE",
+                            "RECOMMEND_ID",
+                            "RECOMMEND_NAME",
+                            "RECOMMEND_PHONE",
+                            "AUDIT_TAG",
+                            "DEAL_TAG",
+                            "DEAL_RESULT",
+                            "DATE_TIME",
+                            "CHECK_ID",
+                            "RECOMMEND_DEPARTID",
+                            "SYS_CODE",
+                            "YCMP_PFEE",
+                            "PURCHASE_FEE",
+                            "PRODUCT_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_CBSSTML_CHECK_LOG"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

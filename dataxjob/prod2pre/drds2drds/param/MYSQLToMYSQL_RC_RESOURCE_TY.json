@@ -1,0 +1,125 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "RS_ID",
+                            "RS_SPU",
+                            "RS_ID_OUT",
+                            "BAR_CODE",
+                            "RES_NAME",
+                            "PLATFORM",
+                            "MANAGE_TYPE",
+                            "RES_TYPE_CODE",
+                            "RES_BRAND_CODE",
+                            "RES_MODEL_CODE",
+                            "RES_EXPLAIN",
+                            "FACTORY_CODE",
+                            "PRICE",
+                            "VALIDATE_FLAG",
+                            "CREATE_TIME",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RES_PRODUCER",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "PLATFORM_NAME",
+                            "MANAGE_TYPE_NAME",
+                            "RES_TYPE_DESC",
+                            "RES_SUBTYPE_CODE",
+                            "RES_SUBTYPE_DESC",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_DESC",
+                            "RES_PRODUCER_NAME",
+                            "FACTORY_CODE_NAME",
+                            "UPDATE_DEPART_NAME",
+                            "UPDATE_STAFF_NAME",
+                            "BSS_BRAND_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RESOURCE_TY"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "RS_ID",
+                            "RS_SPU",
+                            "RS_ID_OUT",
+                            "BAR_CODE",
+                            "RES_NAME",
+                            "PLATFORM",
+                            "MANAGE_TYPE",
+                            "RES_TYPE_CODE",
+                            "RES_BRAND_CODE",
+                            "RES_MODEL_CODE",
+                            "RES_EXPLAIN",
+                            "FACTORY_CODE",
+                            "PRICE",
+                            "VALIDATE_FLAG",
+                            "CREATE_TIME",
+                            "UPDATE_DEPART",
+                            "UPDATE_STAFF",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RES_PRODUCER",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "PLATFORM_NAME",
+                            "MANAGE_TYPE_NAME",
+                            "RES_TYPE_DESC",
+                            "RES_SUBTYPE_CODE",
+                            "RES_SUBTYPE_DESC",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_DESC",
+                            "RES_PRODUCER_NAME",
+                            "FACTORY_CODE_NAME",
+                            "UPDATE_DEPART_NAME",
+                            "UPDATE_STAFF_NAME",
+                            "BSS_BRAND_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RESOURCE_TY"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

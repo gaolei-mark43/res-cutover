@@ -1,0 +1,122 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsstock",
+                        "password": "prod_drsstock_0258",
+                        "where": "PROVINCE_CODE ='97'",
+                        "column": [
+                            "RS_IMEI",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "STATE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "SHEL_NO",
+                            "SEAT_NO",
+                            "RECORD_DATE",
+                            "CONTRACT_NO",
+                            "DEPART_IN",
+                            "STAFF_IN",
+                            "TIME_IN",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RS_NAME",
+                            "DEPOT_NAME",
+                            "STATE_DESC",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "DEPART_IN_NAME",
+                            "STAFF_IN_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_NAME",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "RS_NUM",
+                            "FY_STATE",
+                            "NO_STORE_OUT_TYPE",
+                            "NO_STORE_OUT_TYPE_DESC",
+                            "RS_IMEI"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.32.95:3306/prod_zyzx_drsstock?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "username": "test",
+                        "password": "test",
+                        "writeMode": "upsert",
+                        "column": [
+                            "RS_IMEI",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "STATE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "SHEL_NO",
+                            "SEAT_NO",
+                            "RECORD_DATE",
+                            "CONTRACT_NO",
+                            "DEPART_IN",
+                            "STAFF_IN",
+                            "TIME_IN",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RS_NAME",
+                            "DEPOT_NAME",
+                            "STATE_DESC",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "DEPART_IN_NAME",
+                            "STAFF_IN_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_NAME",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "RS_NUM",
+                            "FY_STATE",
+                            "NO_STORE_OUT_TYPE",
+                            "NO_STORE_OUT_TYPE_DESC",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.191.46.71:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

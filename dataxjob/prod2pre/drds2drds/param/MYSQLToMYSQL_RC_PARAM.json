@@ -1,0 +1,99 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "zyzx_param",
+                        "password": "zyzx_param0112",
+                        "where": "",
+                        "column": [
+                            "PARAM_CODE",
+                            "PARAM_VALUE",
+                            "PARAM_DESC",
+                            "PARA_CODE1",
+                            "PARA_CODE2",
+                            "PARA_CODE3",
+                            "PARA_CODE4",
+                            "PARA_CODE5",
+                            "PARA_NUM1",
+                            "PARA_NUM2",
+                            "PARA_NUM3",
+                            "PARA_NUM4",
+                            "PARA_NUM5",
+                            "PARA_DATE1",
+                            "PARA_DATE2",
+                            "PARA_DATE3",
+                            "PARA_DATE4",
+                            "PARA_DATE5",
+                            "START_DATE",
+                            "END_DATE",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PARAM"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "session": [],
+                        "column": [
+                            "PARAM_CODE",
+                            "PARAM_VALUE",
+                            "PARAM_DESC",
+                            "PARA_CODE1",
+                            "PARA_CODE2",
+                            "PARA_CODE3",
+                            "PARA_CODE4",
+                            "PARA_CODE5",
+                            "PARA_NUM1",
+                            "PARA_NUM2",
+                            "PARA_NUM3",
+                            "PARA_NUM4",
+                            "PARA_NUM5",
+                            "PARA_DATE1",
+                            "PARA_DATE2",
+                            "PARA_DATE3",
+                            "PARA_DATE4",
+                            "PARA_DATE5",
+                            "START_DATE",
+                            "END_DATE",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_PARAM"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

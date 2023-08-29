@@ -1,0 +1,142 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "ORDER_ID",
+                            "LINK_ORDER_ID",
+                            "ORDER_ID_OUT",
+                            "PLATFORM",
+                            "PLATFORM_DESC",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_CODE",
+                            "EPARCHY_NAME",
+                            "CITY_CODE",
+                            "CITY_NAME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "ORDER_STATE",
+                            "ORDER_STATE_DESC",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "ORDER_TIME",
+                            "DEPOT_ID_IN",
+                            "DEPOT_ID_IN_NAME",
+                            "DEPOT_ID_OUT",
+                            "DEPOT_ID_OUT_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_STAFF_NAME",
+                            "UPDATE_TIME",
+                            "EXPORT_PURCHASE_FLAG",
+                            "AUDIT_DEPART",
+                            "START_TIME",
+                            "END_TIME",
+                            "SALE_COUNT",
+                            "AUTHORIZE_DEPOT_ID",
+                            "TRANS_FLAG",
+                            "CREAT_DEPOT_ID",
+                            "ACTIVITY_TYPE",
+                            "REMARK",
+                            "OMS_ID",
+                            "CREATE_FILE_FLAG",
+                            "OMS_ORDER_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "batchSize":256,
+                        "column": [
+                            "ORDER_ID",
+                            "LINK_ORDER_ID",
+                            "ORDER_ID_OUT",
+                            "PLATFORM",
+                            "PLATFORM_DESC",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_CODE",
+                            "EPARCHY_NAME",
+                            "CITY_CODE",
+                            "CITY_NAME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "ORDER_STATE",
+                            "ORDER_STATE_DESC",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "ORDER_TIME",
+                            "DEPOT_ID_IN",
+                            "DEPOT_ID_IN_NAME",
+                            "DEPOT_ID_OUT",
+                            "DEPOT_ID_OUT_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_STAFF_NAME",
+                            "UPDATE_TIME",
+                            "EXPORT_PURCHASE_FLAG",
+                            "AUDIT_DEPART",
+                            "START_TIME",
+                            "END_TIME",
+                            "SALE_COUNT",
+                            "AUTHORIZE_DEPOT_ID",
+                            "TRANS_FLAG",
+                            "CREAT_DEPOT_ID",
+                            "ACTIVITY_TYPE",
+                            "REMARK",
+                            "OMS_ID",
+                            "CREATE_FILE_FLAG",
+                            "OMS_ORDER_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,111 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "TORD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "CONTRACT_NO",
+                            "ORDER_NUM",
+                            "AUDIT_NUM",
+                            "REAL_NUM",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "ER_CODE",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "PRICE",
+                            "ORDER_ID_OUT",
+                            "RS_ID_OUT",
+                            "OMS_ID_OUT",
+                            "OMS_ORDER_ITEM_ID",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RES_DETAIL"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TORD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "CONTRACT_NO",
+                            "ORDER_NUM",
+                            "AUDIT_NUM",
+                            "REAL_NUM",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "ER_CODE",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "PRICE",
+                            "ORDER_ID_OUT",
+                            "RS_ID_OUT",
+                            "OMS_ID_OUT",
+                            "OMS_ORDER_ITEM_ID",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RES_DETAIL"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "TRDR_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "RS_NUM",
+                            "LOCK_NUM",
+                            "CONTRACT_NO",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "RECORD_DATE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RS_NAME",
+                            "DEPOT_NAME",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TRDR_ID",
+                            "RS_ID",
+                            "DEPOT_ID",
+                            "RS_NUM",
+                            "LOCK_NUM",
+                            "CONTRACT_NO",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "RECORD_DATE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "RS_NAME",
+                            "DEPOT_NAME",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_RES"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

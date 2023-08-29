@@ -1,0 +1,87 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "TOOA_ID",
+                            "ORDER_ID",
+                            "AUDIT_STATE",
+                            "AUDIT_STATE_DESC",
+                            "AUDIT_SEQ",
+                            "AUDIT_DEPART_ID",
+                            "AUDIT_DEPART_NAME",
+                            "AUDIT_STAFF_ID",
+                            "AUDIT_STAFF_NAME",
+                            "AUDIT_EXPLAIN",
+                            "AUDIT_TIME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "AUDIT_CHNL_CODE",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER_AUDIT"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "TOOA_ID",
+                            "ORDER_ID",
+                            "AUDIT_STATE",
+                            "AUDIT_STATE_DESC",
+                            "AUDIT_SEQ",
+                            "AUDIT_DEPART_ID",
+                            "AUDIT_DEPART_NAME",
+                            "AUDIT_STAFF_ID",
+                            "AUDIT_STAFF_NAME",
+                            "AUDIT_EXPLAIN",
+                            "AUDIT_TIME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "AUDIT_CHNL_CODE",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER_AUDIT"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

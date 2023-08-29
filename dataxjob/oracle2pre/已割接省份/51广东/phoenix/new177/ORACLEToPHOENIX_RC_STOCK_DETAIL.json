@@ -1,0 +1,94 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_51",
+                        "password": "123123",
+                        "where": "",
+                        "column": [
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "RSNUM",
+                            "REMARK",
+                            "TOSD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "CONTRACT_NO",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "TOSD_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_STOCK_DETAIL"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "writeMode": "upsert",
+                        "username": "xlsZyzx",
+                        "password": "xlsZyzx123",
+                        "column": [
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "RSNUM",
+                            "REMARK",
+                            "TOSD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "CONTRACT_NO",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "XLS_ZYZX.RC_STOCK_DETAIL"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.124.152.177:2181:/hbase-unsecure"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "mysql": {
+        "host": "10.124.144.98",
+        "user": "test_zyzx_dres",
+        "password": "test_dres_8635",
+        "db": "test_zyzx_dres",
+        "deletetable": "RC_DEPOT_RES",
+        "sql_get": "SELECT TRDR_ID FROM RC_DEPOT_RES WHERE PROVINCE_CODE IN('81');",
+        "sql_del": "delete from RC_DEPOT_RES  where TRDR_ID in ({})",
+        "deletekey":"TRDR_ID",
+        "is_delete":1,
+        "betch_size":20000
+    },
+    "mongo": {
+        "ip": "10.124.202.96",
+        "port": 27017,
+        "db": "res-int",
+        "username": "",
+        "password": "",
+        "deletetable": "rc_depot_res",
+        "sql":"{'_id': {'$in': list(map(int, datas))}}",
+        "is_delete":1
+    },
+    "phoenix": {
+        "url": "http://10.124.193.210:8765/",
+        "sql_del":"delete from RC_STOCK where ROW_KEY in ('{}')",
+        "is_delete":0,
+        "betch_size":500
+    }
+}

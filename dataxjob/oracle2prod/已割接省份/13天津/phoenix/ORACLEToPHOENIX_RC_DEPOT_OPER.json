@@ -1,0 +1,108 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_13",
+                        "password": "123123",
+                        "where": "",
+                        "column": [
+                            "OPER_ID",
+                            "ORDER_ID",
+                            "LINK_OPER_ID",
+                            "ORDER_TYPE",
+                            "OPER_TYPE",
+                            "DEPART_ID",
+                            "DEPOT_ID",
+                            "STAFF_ID",
+                            "OPER_STATE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "CITY_NAME",
+                            "ORDER_TYPE_DESC",
+                            "OPER_TYPE_DESC",
+                            "OPER_STATE_DESC",
+                            "DEPART_NAME",
+                            "STAFF_NAME",
+                            "OPER_ID_OUT",
+                            "PLATFORM",
+                            "DEPOT_NAME",
+                            "OPER_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_OPER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "username": "test",
+                        "password": "test",
+                        "writeMode": "upsert",
+                        "column": [
+                            "OPER_ID",
+                            "ORDER_ID",
+                            "LINK_OPER_ID",
+                            "ORDER_TYPE",
+                            "OPER_TYPE",
+                            "DEPART_ID",
+                            "DEPOT_ID",
+                            "STAFF_ID",
+                            "OPER_STATE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "UPDATE_TIME",
+                            "REMARK",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "CITY_NAME",
+                            "ORDER_TYPE_DESC",
+                            "OPER_TYPE_DESC",
+                            "OPER_STATE_DESC",
+                            "DEPART_NAME",
+                            "STAFF_NAME",
+                            "OPER_ID_OUT",
+                            "PLATFORM",
+                            "DEPOT_NAME",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_OPER"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.191.46.71:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

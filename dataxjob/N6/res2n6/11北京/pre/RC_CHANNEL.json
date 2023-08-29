@@ -1,0 +1,181 @@
+{
+   "job": {
+        "setting": {
+            "speed": {
+                 "channel": 6
+            },
+            "errorLimit": {
+                "record": 1,
+                "percentage": 0.2
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "pre_manager",
+                        "password": "aa11bb22",
+						"where":"",
+                        "column": [
+                            "CHNL_CODE",
+							"CHNL_NAME",
+							"CHNL_DESC",
+							"CHNL_ORG_ID",
+							"STATE",
+							"STATE_DESC",
+							"CHNL_KIND_ID",
+							"LOCAL_KIND_ID",
+							"CHNL_CLASS_ID",
+							"CHAIN_FLAG",
+							"IS_RWD_CNT",
+							"PAY_SCOPE",
+							"PAY_CHNL_CODE",
+							"SUPER_CHNL_CODE",
+							"SEFL_CHNL_CODE",
+							"RWD_CNT_DATE",
+							"PROVINCE_CODE",
+							"CITY_CODE",
+							"MANAGER_AREA_CODE",
+							"AREA_TYPE",
+							"CHNL_CHAIN_LEVEL",
+							"CHNL_LEVEL",
+							"IS_INPUT_SYSTEM",
+							"SYSTEM_NUM",
+							"IS_MINI_HALL",
+							"CHNL_AREA_KIND_ID",
+							"BANK_CODE",
+							"BANK_NO",
+							"BANK_ACCT_NAME",
+							"ADDRESS",
+							"CHNL_LINKMAN_NAME",
+							"CHNL_LINKMAN_SEX",
+							"CHNL_EMAIL",
+							"CHNL_FAX",
+							"CHNL_ADDR",
+							"CHNL_OFFICE_PHONE",
+							"CHNL_PHONE",
+							"CHNL_POSTALCODE",
+							"MANAGER_DEPT_CODE",
+							"MANAGER_STAFF_CODE",
+							"MANAGER_PHONE",
+							"BSS_SYS_CODE",
+							"BSS_SYS_CODE2",
+							"REMARK",
+							"AFFILIATETIME",
+							"CREATE_STAFF_CODE",
+							"CREATE_TIME",
+							"LQD_PAY_FLAG",
+							"LQD_START_DATE",
+							"OPER_TYPE",
+							"JOINT_FLAG",
+							"BUILD_AREA",
+							"LONGITUDE",
+							"LATITUDE",
+							"JOINT_SOC_FLAG",
+							"AGENT_BUSINESS_FORM",
+							"TERMINAL_TYPE",
+							"AUTH_POWER_TYPE",
+							"AUTH_TYPE",
+							"APPLE_ID",
+							"IS_TERMINAL_OPERATION",
+							"AFTER_ACTIVATE_CHN",
+							"IS_COMMUNITIES",
+							"UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "rc_channel"
+                                ],
+                                "jdbcUrl":[ "jdbc:mysql://10.124.158.186:3306/pre_param?useUnicode=true&characterEncoding=gbk"]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "mysqlwriter",
+                     "parameter": {
+                        "writeMode": "insert ignore",
+                        "username": "test_n6sta",
+                        "password": "test_n6sta0118",
+                        "column": [
+                            "CHNL_CODE",
+							"CHNL_NAME",
+							"CHNL_DESC",
+							"CHNL_ORG_ID",
+							"STATE",
+							"STATE_DESC",
+							"CHNL_KIND_ID",
+							"LOCAL_KIND_ID",
+							"CHNL_CLASS_ID",
+							"CHAIN_FLAG",
+							"IS_RWD_CNT",
+							"PAY_SCOPE",
+							"PAY_CHNL_CODE",
+							"SUPER_CHNL_CODE",
+							"SEFL_CHNL_CODE",
+							"RWD_CNT_DATE",
+							"PROVINCE_CODE",
+							"CITY_CODE",
+							"MANAGER_AREA_CODE",
+							"AREA_TYPE",
+							"CHNL_CHAIN_LEVEL",
+							"CHNL_LEVEL",
+							"IS_INPUT_SYSTEM",
+							"SYSTEM_NUM",
+							"IS_MINI_HALL",
+							"CHNL_AREA_KIND_ID",
+							"BANK_CODE",
+							"BANK_NO",
+							"BANK_ACCT_NAME",
+							"ADDRESS",
+							"CHNL_LINKMAN_NAME",
+							"CHNL_LINKMAN_SEX",
+							"CHNL_EMAIL",
+							"CHNL_FAX",
+							"CHNL_ADDR",
+							"CHNL_OFFICE_PHONE",
+							"CHNL_PHONE",
+							"CHNL_POSTALCODE",
+							"MANAGER_DEPT_CODE",
+							"MANAGER_STAFF_CODE",
+							"MANAGER_PHONE",
+							"BSS_SYS_CODE",
+							"BSS_SYS_CODE2",
+							"REMARK",
+							"AFFILIATETIME",
+							"CREATE_STAFF_CODE",
+							"CREATE_TIME",
+							"LQD_PAY_FLAG",
+							"LQD_START_DATE",
+							"OPER_TYPE",
+							"JOINT_FLAG",
+							"BUILD_AREA",
+							"LONGITUDE",
+							"LATITUDE",
+							"JOINT_SOC_FLAG",
+							"AGENT_BUSINESS_FORM",
+							"TERMINAL_TYPE",
+							"AUTH_POWER_TYPE",
+							"AUTH_TYPE",
+							"APPLE_ID",
+							"IS_TERMINAL_OPERATION",
+							"AFTER_ACTIVATE_CHN",
+							"IS_COMMUNITIES",
+							"UPDATE_TIME"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://10.124.159.161:3306/test_n6sta?useUnicode=true&characterEncoding=gbk",
+                                "table": [
+                                    "rc_channel"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

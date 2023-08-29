@@ -1,0 +1,73 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 10
+      },
+      "errorLimit": {
+        "record": 10000000,
+        "percentage": 0.2
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "oraclereader",
+          "parameter": {
+            "username": "USER_84",
+            "password": "123123",
+            "column": [
+              "authorize_id",
+              "depot_id",
+              "depotname",
+              "authorize_depot_id",
+              "authorizedepotname",
+              "state",
+              "staff_id",
+              "create_time",
+              "remark"
+            ],
+            "connection": [
+              {
+                "table": [
+                  "rc_depot_authorize"
+                ],
+                "jdbcUrl": [
+                  "jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "insert ignore",
+            "username": "zyzx_param",
+            "password": "zyzx_param0112",
+            "column": [
+              "AUTHORIZE_ID",
+              "DEPOT_ID",
+              "DEPOT_NAME",
+              "AUTHORIZE_DEPOT_ID",
+              "AUTHORIZE_DEPOT_NAME",
+              "STATE",
+              "STAFF_ID",
+              "CREATE_TIME",
+              "REMARK"
+
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://10.245.34.24:3306/zyzx_param?useUnicode=true&characterEncoding=UTF-8",
+                "table": [
+                  "rc_depot_authorize_ready0522"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 4
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "oraclereader",
+					"parameter": {
+						"username": "USER_51",
+						"password": "123123",
+						"column": [
+							"trdr_id",
+							"trdr_id",
+							"rs_id",
+							"rsname",
+							"depot_id",
+							"depotname",
+							"rs_num",
+							"lock_num",
+							"contract_no",
+							"province_code",
+							"provincename",
+							"eparchy_code",
+							"eparchyname",
+							"record_date",
+							"update_time",
+							"remark"
+						],
+						"connection": [
+							{
+								"table": [
+									"RC_DEPOT_RES"
+								],
+								"jdbcUrl": [
+									"jdbc:oracle:thin:@10.245.31.40:1521:xlsdb01"
+								]
+							}
+						]
+					}
+				},
+				"writer": {
+					"name": "mongodbwriter",
+					"parameter": {
+						"address": [
+							"10.124.202.96:27017"
+						],
+						"userName": "",
+						"userPassword": "",
+						"dbName": "res-int",
+						"collectionName": "rc_depot_res",
+						"column": [
+							{
+								"name": "_id",
+								"type": "Long"
+							},
+							{
+								"name": "trdrId",
+								"type": "Long"
+							},
+							{
+								"name": "rsId",
+								"type": "Long"
+							},
+							{
+								"name": "rsName",
+								"type": "String"
+							},
+							{
+								"name": "depotId",
+								"type": "string"
+							},
+							{
+								"name": "depotName",
+								"type": "string"
+							},
+							{
+								"name": "rsNum",
+								"type": "Long"
+							},
+							{
+								"name": "lockNum",
+								"type": "Long"
+							},
+							{
+								"name": "contractNo",
+								"type": "String"
+							},
+							{
+								"name": "provinceCode",
+								"type": "string"
+							},
+							{
+								"name": "provinceName",
+								"type": "string"
+							},
+							{
+								"name": "eparchyCode",
+								"type": "string"
+							},
+							{
+								"name": "eparchyName",
+								"type": "string"
+							},
+							{
+								"name": "recordDate",
+								"type": "date"
+							},
+							{
+								"name": "updateTime",
+								"type": "date"
+							},
+							{
+								"name": "remark",
+								"type": "string"
+							},
+							{
+								"name": "_class",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"transformer": [
+					{
+						"name": "dx_groovy",
+						"parameter": {
+							"code": "
+							Column column = record.getColumn(0);String oriValue = column.asString();record.setColumn(0, new LongColumn(oriValue));
+							Column col1 = record.getColumn(1);String ori1 = col1.asString();record.setColumn(1, new LongColumn(ori1));
+							Column col2 = record.getColumn(2);String ori2 = col2.asString();record.setColumn(2, new LongColumn(ori2));
+							Column col6 = record.getColumn(6);String ori6 = col6.asString();record.setColumn(6, new LongColumn(ori6));
+							Column col7 = record.getColumn(7);String ori7 = col7.asString();record.setColumn(7, new LongColumn(ori7));
+							record.setColumn(16, new StringColumn('com.chinaunicom.cb2.rc.depot.pojo.mongo.DepotResMongoPo')); 
+							return record;",
+							"extraPackage": []
+						}
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,142 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_84",
+                        "password": "123123",
+                        "where": "",
+                        "column": [
+                            "order_id",
+                            "link_order_id",
+                            "order_id_out",
+                            "platform",
+                            "platform_desc",
+                            "province_code",
+                            "province_name",
+                            "eparchy_code",
+                            "eparchy_name",
+                            "city_code",
+                            "city_name",
+                            "order_type",
+                            "order_type_desc",
+                            "order_state",
+                            "order_state_desc",
+                            "depart_id",
+                            "depart_name",
+                            "staff_id",
+                            "staff_name",
+                            "order_time",
+                            "depot_id_in",
+                            "depot_id_in_name",
+                            "depot_id_out",
+                            "depot_id_out_name",
+                            "factory_code",
+                            "factory_name",
+                            "update_staff_id",
+                            "update_staff_name",
+                            "update_time",
+                            "export_purchase_flag",
+                            "AUDIT_DEPART",
+                            "START_TIME",
+                            "END_TIME",
+                            "sale_count",
+                            "AUTHORIZE_DEPOT_ID",
+                            "TRANS_FLAG",
+                            "CREAT_DEPOT_ID",
+                            "activity_type",
+                            "remark",
+                            "OMS_ID",
+                            "OMS_ORDER_ID",
+                            "CREATE_FILE_FLAG",
+                            "order_id"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "username": "test",
+                        "password": "test",
+                        "writeMode": "upsert",
+                        "column": [
+                            "ORDER_ID",
+                            "LINK_ORDER_ID",
+                            "ORDER_ID_OUT",
+                            "PLATFORM",
+                            "PLATFORM_DESC",
+                            "PROVINCE_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_CODE",
+                            "EPARCHY_NAME",
+                            "CITY_CODE",
+                            "CITY_NAME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "ORDER_STATE",
+                            "ORDER_STATE_DESC",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "ORDER_TIME",
+                            "DEPOT_ID_IN",
+                            "DEPOT_ID_IN_NAME",
+                            "DEPOT_ID_OUT",
+                            "DEPOT_ID_OUT_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_STAFF_NAME",
+                            "UPDATE_TIME",
+                            "EXPORT_PURCHASE_FLAG",
+                            "AUDIT_DEPART",
+                            "START_TIME",
+                            "END_TIME",
+                            "SALE_COUNT",
+                            "AUTHORIZE_DEPOT_ID",
+                            "TRANS_FLAG",
+                            "CREAT_DEPOT_ID",
+                            "ACTIVITY_TYPE",
+                            "REMARK",
+                            "OMS_ID",
+                            "OMS_ORDER_ID",
+                            "CREATE_FILE_FLAG",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_ORDER"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.191.46.71:2181"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

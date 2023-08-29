@@ -1,0 +1,107 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsintf",
+                        "password": "prod_drsintf_7634",
+                        "where": "",
+                        "column": [
+                            "OPER_ID",
+                            "ORDER_ID",
+                            "LINK_OPER_ID",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "CITY_NAME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "OPER_TYPE",
+                            "OPER_TYPE_DESC",
+                            "OPER_STATE",
+                            "OPER_STATE_DESC",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "UPDATE_TIME",
+                            "OPER_ID_OUT",
+                            "PLATFORM",
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_OPER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsintf?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "OPER_ID",
+                            "ORDER_ID",
+                            "LINK_OPER_ID",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CITY_CODE",
+                            "PROVINCE_NAME",
+                            "EPARCHY_NAME",
+                            "CITY_NAME",
+                            "ORDER_TYPE",
+                            "ORDER_TYPE_DESC",
+                            "OPER_TYPE",
+                            "OPER_TYPE_DESC",
+                            "OPER_STATE",
+                            "OPER_STATE_DESC",
+                            "DEPART_ID",
+                            "DEPART_NAME",
+                            "STAFF_ID",
+                            "STAFF_NAME",
+                            "UPDATE_TIME",
+                            "OPER_ID_OUT",
+                            "PLATFORM",
+                            "DEPOT_ID",
+                            "DEPOT_NAME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_DEPOT_OPER"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

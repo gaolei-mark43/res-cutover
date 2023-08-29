@@ -1,0 +1,422 @@
+{
+   "job": {
+        "setting": {
+            "speed": {
+                 "channel": 6
+                 
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                                        "reader": {
+                                                "name": "drdsreader",
+                                                "parameter": {
+                                                         "username": "pre_xlszyzx_drds",
+                                                         "password": "AA11bb22",
+                                                         
+                                                         "column": [
+                                                                "ORDER_ID",
+                                                                "TRADE_ID",
+                                                                "OLD_TRADE_ID",
+                                                                "SYS_CODE",
+                                                                "PROVINCE_CODE",
+                                                                "PROVINCE_NAME",
+                                                                "EPARCHY_CODE",
+                                                                "EPARCHY_NAME",
+                                                                "CITY_CODE",
+                                                                "CITY_NAME",
+                                                                "TRADE_TYPE",
+                                                                "TRADE_TYPE_NAME",
+                                                                "ACTIVITY_TYPE",
+                                                                "ACTIVITY_ID",
+                                                                "TELEPHONE",
+                                                                "SALE_TIME",
+                                                                "CHANNEL_CODE",
+                                                                "CHANNEL_CODE_NAME",
+                                                                "CHANNEL_TYPE",
+                                                                "IS_TRANS_CHANNEL",
+                                                                "DEPART_ID",
+                                                                "DEPART_NAME",
+                                                                "STAFF_ID",
+                                                                "STAFF_NAME",
+                                                                "RS_ID",
+                                                                "PLATFORM",
+                                                                "SALE_NUM",
+                                                                "RS_IMEI",
+                                                                "RS_IMEI_ORG",
+                                                                "SALE_PRICE",
+                                                                "CANCEL_TAG",
+                                                                "UPDATE_TIME",
+                                                                "SEND_FLAG",
+                                                                "HAS_TML_FLAG",
+                                                                "SELF_TML_FLAG",
+                                                                "REMARK",
+                                                                "CONSIG_CREATE_FLAG",
+                                                                "RS_NAME",
+                                                                "RES_TYPE_CODE",
+                                                                "RES_TYPE_DESC",
+                                                                "RES_BRAND_CODE",
+                                                                "RES_BRAND_DESC",
+                                                                "RES_MODEL_CODE",
+                                                                "RES_MODEL_DESC",
+                                                                "FACTORY_CODE",
+                                                                "FACTORY_NAME",
+                                                                "UPDATE_DEPART",
+                                                                "UPDATE_DEPART_NAME",
+                                                                "UPDATE_STAFF",
+                                                                "UPDATE_STAFF_NAME",
+                                                                "PLATFORM_NAME",
+                                                                "MANAGE_TYPE",
+                                                                "MANAGE_TYPE_DESC",
+                                                                "RES_PRODUCER",
+                                                                "RES_PRODUCER_NAME",
+                                                                "BARCODE",
+                                                                "START_TIME",
+                                                                "END_TIME",
+                                                                "DEPOT_ID",
+                                                                "DEPOT_NAME",
+                                                                "DRECOMMEND_ID",
+                                                                "RECOMMEND_NAME",
+                                                                "RECOMMEND_NUMBER",
+                                                                "RECOM_DEPART_ID"
+                                                         ],
+                                                         "connection": [
+                                                                  {
+                                                                                "table": [
+                                                                                         "RC_SALE"
+                                                                                ],
+                                                                                "jdbcUrl": [
+                                                                                         "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+                                                                                ]
+                                                                  }
+                                                         ]
+                                                }
+                                  },
+               "writer": {
+                    "name": "mongodbwriter",
+                    "parameter": {
+                       "address": [
+                         "10.124.202.96:27017"
+                        ],
+                        "userName": "",
+                        "userPassword": "",
+                        "dbName": "res-int",
+                        "collectionName": "rc_sale",
+                        "column": [
+                                 {
+                                    "name": "_id",
+                                    "type": "Long"
+                                 }, 
+                                 {
+                                    "name": "tradeId",
+                                    "type": "string"
+                                 }, 
+                                 {
+                                    "name": "oldTradeId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "sysCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "provinceCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "provinceName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "eparchyCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "eparchyName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "cityCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "cityName",
+                                    "type": "string"
+                                 },
+
+                                 {
+                                    "name": "tradeType",
+                                    "type": "string"
+                                 },
+
+                                 {
+                                    "name": "tradeTypeName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "activityType",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "activityId",
+                                    "type": "string"
+                                 },
+
+                                 {
+                                    "name": "telephone",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "saleTime",
+                                    "type": "date"
+                                 },
+                                 {
+                                    "name": "channelCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "channelCodeName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "channelType",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "isTransChannel",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "departId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "departName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "staffId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "staffName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "rsId",
+                                    "type": "Long"
+                                 },
+                                 {
+                                    "name": "platform",
+                                    "type": "string"
+                                 }, 
+                                 {
+                                    "name": "saleNum",
+                                    "type": "Long"
+                                 },
+                                 {
+                                    "name": "rsImei",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "rsImeiOrg",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "salePrice",
+                                    "type": "Long"
+                                 },
+                                 {
+                                    "name": "cancelTag",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateTime",
+                                    "type": "date"
+                                 },
+                                 {
+                                    "name": "sendFlag",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "hasTmlFlag",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "selfTmlFlag",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "remark",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "consigCreateFlag",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "rsName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resTypeCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resTypeDesc",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resBrandCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resBrandDesc",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resModelCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resModelDesc",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "factoryCode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "factoryName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateDepart",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateDepartName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateStaff",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "updateStaffName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "platformName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "manageType",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "manageTypeDesc",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resProducer",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "resProducerName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "barcode",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "startTime",
+                                    "type": "date"
+                                 },
+                                 {
+                                    "name": "endTime",
+                                    "type": "date"
+                                 },
+                                 {
+                                    "name": "depotId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "depotName",
+                                    "type": "string"
+                                 }
+                                 ,
+                                 {
+                                    "name": "drecommendId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "recommendName",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "recommendNumber",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "recomDepartId",
+                                    "type": "string"
+                                 },
+                                 {
+                                    "name": "orderId",
+                                    "type": "Long"
+                                 },
+                                 
+                                 {
+                                    "name": "_class",
+                                    "type": "string"
+                                 },
+                                 
+                                 
+
+                         ]
+                   }
+                },
+                "transformer": [
+                {
+                        "name": "dx_groovy",
+                        "parameter": {
+                            "code": "
+                             Column column = record.getColumn(0);
+                            String oriValue = column.asString();
+                            record.setColumn(0, new LongColumn(oriValue));
+
+                           
+                             Column col14 = record.getColumn(24);
+                            String ori14 = col14.asString();
+                            record.setColumn(24, new LongColumn(ori14));
+                             
+                           Column col26 = record.getColumn(26);
+                            String ori26 = col26.asString();
+                            record.setColumn(26, new LongColumn(ori26));
+
+                             Column col18 = record.getColumn(29);
+                            String ori18 = col18.asString();
+                            record.setColumn(29, new LongColumn(ori18));
+
+
+                            record.setColumn(64, new LongColumn(oriValue));
+
+
+
+                            record.setColumn(65, new StringColumn('com.chinaunicom.cb2.rc.order.pojo.mongo.SaleMongoPo')); 
+                            return record;",
+
+                            "extraPackage":[]
+                        }
+                }
+                ]
+            }
+        ]
+    }
+}

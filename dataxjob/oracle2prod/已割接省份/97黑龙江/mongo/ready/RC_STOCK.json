@@ -1,0 +1,236 @@
+{
+    "job": {
+       "setting": {
+          "speed": {
+             "channel": 5
+          },
+          "errorLimit": {
+             "record": 10000000,
+             "percentage": 0.2
+          }
+       },
+       "content": [
+          {
+             "reader": {
+                "name": "oraclereader",
+                "parameter": {
+                   "username": "USER_97",
+                   "password": "123123",
+                   "column": [
+                      "RS_IMEI",
+                      "RS_IMEI",
+                      "RS_ID",
+                      "DEPOT_ID",
+                      "STATE",
+                      "PROVINCE_CODE",
+                      "EPARCHY_CODE",
+                      "SHEL_NO",
+                      "SEAT_NO",
+                      "RECORD_DATE",
+                      "CONTRACT_NO",
+                      "DEPART_IN",
+                      "STAFF_IN",
+                      "TIME_IN",
+                      "UPDATE_TIME",
+                      "REMARK",
+                      "RS_NUM",
+                      "STATEDESC",
+                      "PROVINCENAME",
+                      "EPARCHYNAME",
+                      "DEPARTINNAME",
+                      "STAFFINNAME",
+                      "RESTYPECODE",
+                      "RESTYPEDESC",
+                      "RESBRANDCODE",
+                      "RESBRANDDESC",
+                      "RESMODELCODE",
+                      "RESMODELDESC",
+                      "FY_STATE",
+                      "NO_STORE_OUT_TYPE",
+                      "NO_STORE_OUT_TYPE_DESC",
+                      "RSNAME",
+                      "DEPOTNAME"
+                   ],
+                   "splitPk": "rs_imei",
+                   "connection": [
+                      {
+                         "table": [
+                            "RC_STOCK"
+                         ],
+                         "jdbcUrl": [
+                            "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                         ]
+                      }
+                   ]
+                }
+             },
+             "writer": {
+                "name": "mongodbwriter",
+                "parameter": {
+                    "address": [
+                        "10.191.41.9:20000"
+                    ],
+                    "userName": "resprod",
+                    "userPassword": "resprod123",
+                    "dbName": "resprod",
+                   "collectionName": "rc_stock_ready0522",
+                   "upsertInfo": {
+                      "isUpsert": "true",
+                      "upsertKey": "_id"
+                   },
+                   "column": [
+                      {
+                         "name": "_id",
+                         "type": "string"
+                      },
+                      {
+                         "name": "rsImei",
+                         "type": "string"
+                      },
+                      {
+                         "name": "rsId",
+                         "type": "Long"
+                      },
+                      {
+                         "name": "depotId",
+                         "type": "string"
+                      },
+                      {
+                         "name": "state",
+                         "type": "string"
+                      },
+                      {
+                         "name": "provinceCode",
+                         "type": "string"
+                      },
+                      {
+                         "name": "eparchyCode",
+                         "type": "string"
+                      },
+                      {
+                         "name": "shelNo",
+                         "type": "string"
+                      },
+                      {
+                         "name": "seatNo",
+                         "type": "string"
+                      },
+                      {
+                         "name": "recordDate",
+                         "type": "date"
+                      },
+                      {
+                         "name": "contractNo",
+                         "type": "string"
+                      },
+                      {
+                         "name": "departIn",
+                         "type": "string"
+                      },
+                      {
+                         "name": "staffIn",
+                         "type": "string"
+                      },
+                      {
+                         "name": "timeIn",
+                         "type": "date"
+                      },
+                      {
+                         "name": "updateTime",
+                         "type": "date"
+                      },
+                      {
+                         "name": "remark",
+                         "type": "string"
+                      },
+                      {
+                         "name": "rsNum",
+                         "type": "string"
+                      },
+                      {
+                         "name": "stateDesc",
+                         "type": "string"
+                      },
+                      {
+                         "name": "provinceName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "eparchyName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "departInName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "staffInName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resTypeCode",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resTypeDesc",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resBrandCode",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resBrandName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resModelCode",
+                         "type": "string"
+                      },
+                      {
+                         "name": "resModelDesc",
+                         "type": "string"
+                      },
+                      {
+                         "name": "fyState",
+                         "type": "string"
+                      },
+                      {
+                         "name": "noStoreOutType",
+                         "type": "string"
+                      },
+                      {
+                         "name": "noStoreOutTypeDes",
+                         "type": "string"
+                      },
+                      {
+                         "name": "rsName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "depotName",
+                         "type": "string"
+                      },
+                      {
+                         "name": "_class",
+                         "type": "string"
+                      }
+                   ]
+                }
+             },
+             "transformer": [
+                {
+                   "name": "dx_groovy",
+                   "parameter": {
+                      "code": "
+                      Column column = record.getColumn(2); String oriValue = column.asString(); record.setColumn(2, new LongColumn(oriValue));  
+                      record.setColumn(33, new StringColumn('com.chinaunicom.cb2.rc.depot.pojo.mongo.StockMongoPo')); 
+                       return record;",
+                      "extraPackage": []
+                   }
+                }
+             ]
+          }
+       ]
+    }
+ }

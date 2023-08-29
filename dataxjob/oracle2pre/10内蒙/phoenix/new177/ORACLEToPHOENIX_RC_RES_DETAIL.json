@@ -1,0 +1,112 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "USER_10",
+						"password": "123123",
+                        "where": "",
+                        "column": [
+                            "TORD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDERID",
+                            "RSID",
+                            "ORDERNUM",
+                            "AUDITNUM",
+                            "REALNUM",
+                            "UPDATESTAFFID",
+                            "UPDATETIME",
+                            "RSNAME",
+                            "RESTYPECODE",
+                            "RESTYPEDESC",
+                            "RESBRANDCODE",
+                            "RESBRANDDESC",
+                            "RESMODELCODE",
+                            "RESMODELDESC",
+                            "UPDATESTAFFNAME",
+                            "FACTORYCODE",
+                            "FACTORYNAME",
+                            "PRICE",
+                            "RS_ID_OUT",
+                            "REMARK",
+                            "CONTRACT_NO",
+                            "ER_CODE",
+                            "ORDER_ID_OUT",
+                            "OMS_ID_OUT",
+                            "OMS_ORDER_ITEM_ID",
+                            "TORD_ID"
+                        ],
+                        "splitPk": "",
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RES_DETAIL"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "rdbmswriter",
+                    "parameter": {
+                        "writeMode": "upsert",
+                        "username": "xlsZyzx",
+                        "password": "xlsZyzx123",
+                        "column": [
+                            "TORD_ID",
+                            "DEPOT_OPER_ID",
+                            "ORDER_ID",
+                            "RS_ID",
+                            "ORDER_NUM",
+                            "AUDIT_NUM",
+                            "REAL_NUM",
+                            "UPDATE_STAFF_ID",
+                            "UPDATE_TIME",
+                            "RS_NAME",
+                            "RES_TYPE_CODE",
+                            "RES_TYPE_DESC",
+                            "RES_BRAND_CODE",
+                            "RES_BRAND_DESC",
+                            "RES_MODEL_CODE",
+                            "RES_MODEL_DESC",
+                            "UPDATE_STAFF_NAME",
+                            "FACTORY_CODE",
+                            "FACTORY_NAME",
+                            "PRICE",
+                            "RS_ID_OUT",
+                            "REMARK",
+                            "CONTRACT_NO",
+                            "ER_CODE",
+                            "ORDER_ID_OUT",
+                            "OMS_ID_OUT",
+                            "OMS_ORDER_ITEM_ID",
+                            "ROW_KEY"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "XLS_ZYZX.RC_RES_DETAIL"
+                                ],
+                                "jdbcUrl": "jdbc:phoenix:10.124.152.177:2181:/hbase-unsecure"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

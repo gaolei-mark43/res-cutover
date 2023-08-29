@@ -1,0 +1,200 @@
+{
+   "job": {
+      "setting": {
+         "speed": {
+            "channel": 8
+         },
+         "errorLimit": {
+            "record": 1,
+            "percentage": 0.02
+         }
+      },
+      "content": [
+         {
+            "reader": {
+               "name": "oraclereader",
+               "parameter": {
+                  "username": "USER_11",
+                  "password": "123123",
+                  "column": [
+                     "OPER_ID",
+                     "OPER_ID",
+                     "ORDER_ID",
+                     "LINK_OPER_ID",
+                     "PROVINCE_CODE",
+                     "EPARCHY_CODE",
+                     "CITY_CODE",
+                     "PROVINCE_NAME",
+                     "EPARCHY_NAME",
+                     "CITY_NAME",
+                     "ORDER_TYPE",
+                     "ORDER_TYPE_DESC",
+                     "OPER_TYPE",
+                     "OPER_TYPE_DESC",
+                     "OPER_STATE",
+                     "OPER_STATE_DESC",
+                     "DEPART_ID",
+                     "DEPART_NAME",
+                     "STAFF_ID",
+                     "STAFF_NAME",
+                     "UPDATE_TIME",
+                     "OPER_ID_OUT",
+                     "PLATFORM",
+                     "DEPOT_ID",
+                     "DEPOT_NAME",
+                     "REMARK"
+                  ],
+                  "splitPK": "OPER_ID",
+                  "connection": [
+                     {
+                        "table": [
+                           "RC_DEPOT_OPER"
+                        ],
+                        "jdbcUrl": [
+                           "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.245.31.40)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XLSDB01)(INSTANCE_NAME=xlsdb01)))"
+                        ]
+                     }
+                  ]
+               }
+            },
+            "writer": {
+               "name": "mongodbwriter",
+               "parameter": {
+                  "address": [
+                     "10.124.202.96:27017"
+                  ],
+                  "userName": "",
+                  "userPassword": "",
+                  "dbName": "res-int",
+                  "collectionName": "rc_depot_oper",
+                  "column": [
+                     {
+                        "name": "_id",
+                        "type": "Long"
+                     },
+                     {
+                        "name": "operId",
+                        "type": "Long"
+                     },
+                     {
+                        "name": "orderId",
+                        "type": "Long"
+                     },
+                     {
+                        "name": "linkOperId",
+                        "type": "Long"
+                     },
+                     {
+                        "name": "provinceCode",
+                        "type": "string"
+                     },
+                     {
+                        "name": "eparchyCode",
+                        "type": "string"
+                     },
+                     {
+                        "name": "cityCode",
+                        "type": "string"
+                     },
+                     {
+                        "name": "provinceName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "eparchyName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "cityName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "orderType",
+                        "type": "string"
+                     },
+                     {
+                        "name": "orderTypeDesc",
+                        "type": "string"
+                     },
+                     {
+                        "name": "operType",
+                        "type": "string"
+                     },
+                     {
+                        "name": "operTypeDesc",
+                        "type": "string"
+                     },
+                     {
+                        "name": "operState",
+                        "type": "string"
+                     },
+                     {
+                        "name": "operStateDesc",
+                        "type": "string"
+                     },
+                     {
+                        "name": "departId",
+                        "type": "string"
+                     },
+                     {
+                        "name": "departName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "staffId",
+                        "type": "string"
+                     },
+                     {
+                        "name": "staffName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "updateTime",
+                        "type": "date"
+                     },
+                     {
+                        "name": "operIdOut",
+                        "type": "string"
+                     },
+                     {
+                        "name": "platform",
+                        "type": "string"
+                     },
+                     {
+                        "name": "depotId",
+                        "type": "string"
+                     },
+                     {
+                        "name": "depotName",
+                        "type": "string"
+                     },
+                     {
+                        "name": "remark",
+                        "type": "string"
+                     },
+                     {
+                        "name": "_class",
+                        "type": "string"
+                     }
+                  ]
+               }
+            },
+            "transformer": [
+               {
+                  "name": "dx_groovy",
+                  "parameter": {
+                     "code": "
+                     Column column = record.getColumn(0);String oriValue = column.asString();record.setColumn(0, new LongColumn(oriValue));
+                     Column col1 = record.getColumn(1);String ori1 = col1.asString();record.setColumn(1, new LongColumn(ori1));
+                     Column col2 = record.getColumn(2);String ori2 = col2.asString();record.setColumn(2, new LongColumn(ori2));
+                     Column col3 = record.getColumn(3);String ori3 = col3.asString();record.setColumn(3, new LongColumn(ori3));
+                     record.setColumn(26, new StringColumn('com.chinaunicom.cb2.rc.order.pojo.mongo.DepotOperMongoPo')); 
+                     return record;",
+                     "extraPackage": []
+                  }
+               }
+            ]
+         }
+      ]
+   }
+}

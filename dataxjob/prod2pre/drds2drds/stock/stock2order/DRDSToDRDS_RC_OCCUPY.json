@@ -1,0 +1,89 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "OCC_ID",
+                            "SYS_CODE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CHANNEL_CODE",
+                            "CHANNEL_TYPE",
+                            "DEPART_ID",
+                            "STAFF_ID",
+                            "OCCUPY_KEY",
+                            "OCC_TIME",
+                            "DEPOT_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "RS_NUM",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_OCCUPY"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "OCC_ID",
+                            "SYS_CODE",
+                            "PROVINCE_CODE",
+                            "EPARCHY_CODE",
+                            "CHANNEL_CODE",
+                            "CHANNEL_TYPE",
+                            "DEPART_ID",
+                            "STAFF_ID",
+                            "OCCUPY_KEY",
+                            "OCC_TIME",
+                            "DEPOT_ID",
+                            "RS_ID",
+                            "RS_IMEI",
+                            "RS_NUM",
+                            "UPDATE_TIME",
+                            "REMARK"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_OCCUPY"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

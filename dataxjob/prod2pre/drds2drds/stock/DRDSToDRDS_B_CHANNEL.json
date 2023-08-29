@@ -1,0 +1,177 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 4
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "prod_zyzx_drsorder",
+                        "password": "prod_drsorder_1267",
+                        "where": "",
+                        "column": [
+                            "CHNL_CODE",
+                            "DEPART_CODE",
+                            "CHNL_NAME",
+                            "CHNL_DESC",
+                            "CHNL_ORG_ID",
+                            "STATE",
+                            "STATE_DESC",
+                            "CHNL_KIND_ID",
+                            "LOCAL_KIND_ID",
+                            "CHNL_CLASS_ID",
+                            "CHAIN_FLAG",
+                            "IS_RWD_CNT",
+                            "PAY_SCOPE",
+                            "PAY_CHNL_CODE",
+                            "SUPER_CHNL_CODE",
+                            "SEFL_CHNL_CODE",
+                            "RWD_CNT_DATE",
+                            "PROVINCE_CODE",
+                            "CITY_CODE",
+                            "MANAGER_AREA_CODE",
+                            "AREA_TYPE",
+                            "CHNL_CHAIN_LEVEL",
+                            "CHNL_LEVEL",
+                            "IS_INPUT_SYSTEM",
+                            "SYSTEM_NUM",
+                            "IS_MINI_HALL",
+                            "CHNL_AREA_KIND_ID",
+                            "BANK_CODE",
+                            "BANK_NO",
+                            "BANK_ACCT_NAME",
+                            "ADDRESS",
+                            "CHNL_LINKMAN_NAME",
+                            "CHNL_LINKMAN_SEX",
+                            "CHNL_EMAIL",
+                            "CHNL_FAX",
+                            "CHNL_ADDR",
+                            "CHNL_OFFICE_PHONE",
+                            "CHNL_PHONE",
+                            "CHNL_POSTALCODE",
+                            "MANAGER_DEPT_CODE",
+                            "MANAGER_STAFF_CODE",
+                            "MANAGER_PHONE",
+                            "AFFILIATETIME",
+                            "CREATE_STAFF_CODE",
+                            "CREATE_TIME",
+                            "DEVLIST",
+                            "DEVELOPER",
+                            "DEV_OPERATE",
+                            "DEV_CODE",
+                            "DEV_TYPE_ID",
+                            "DEV_NAME",
+                            "DEV_STAFF_CODE",
+                            "USER_PID",
+                            "LINKMAN_PHONE",
+                            "LINKMAN_EMAIL",
+                            "GROUP_ACCT",
+                            "LINKMAN_ADDR",
+                            "LINKMAN_POSTCODE",
+                            "BSS_SYS_CODE",
+                            "BSS_SYS_CODE2"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "B_CHANNEL"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.245.33.254:3306/prod_zyzx_drsorder?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "CHNL_CODE",
+                            "DEPART_CODE",
+                            "CHNL_NAME",
+                            "CHNL_DESC",
+                            "CHNL_ORG_ID",
+                            "STATE",
+                            "STATE_DESC",
+                            "CHNL_KIND_ID",
+                            "LOCAL_KIND_ID",
+                            "CHNL_CLASS_ID",
+                            "CHAIN_FLAG",
+                            "IS_RWD_CNT",
+                            "PAY_SCOPE",
+                            "PAY_CHNL_CODE",
+                            "SUPER_CHNL_CODE",
+                            "SEFL_CHNL_CODE",
+                            "RWD_CNT_DATE",
+                            "PROVINCE_CODE",
+                            "CITY_CODE",
+                            "MANAGER_AREA_CODE",
+                            "AREA_TYPE",
+                            "CHNL_CHAIN_LEVEL",
+                            "CHNL_LEVEL",
+                            "IS_INPUT_SYSTEM",
+                            "SYSTEM_NUM",
+                            "IS_MINI_HALL",
+                            "CHNL_AREA_KIND_ID",
+                            "BANK_CODE",
+                            "BANK_NO",
+                            "BANK_ACCT_NAME",
+                            "ADDRESS",
+                            "CHNL_LINKMAN_NAME",
+                            "CHNL_LINKMAN_SEX",
+                            "CHNL_EMAIL",
+                            "CHNL_FAX",
+                            "CHNL_ADDR",
+                            "CHNL_OFFICE_PHONE",
+                            "CHNL_PHONE",
+                            "CHNL_POSTALCODE",
+                            "MANAGER_DEPT_CODE",
+                            "MANAGER_STAFF_CODE",
+                            "MANAGER_PHONE",
+                            "AFFILIATETIME",
+                            "CREATE_STAFF_CODE",
+                            "CREATE_TIME",
+                            "DEVLIST",
+                            "DEVELOPER",
+                            "DEV_OPERATE",
+                            "DEV_CODE",
+                            "DEV_TYPE_ID",
+                            "DEV_NAME",
+                            "DEV_STAFF_CODE",
+                            "USER_PID",
+                            "LINKMAN_PHONE",
+                            "LINKMAN_EMAIL",
+                            "GROUP_ACCT",
+                            "LINKMAN_ADDR",
+                            "LINKMAN_POSTCODE",
+                            "BSS_SYS_CODE",
+                            "BSS_SYS_CODE2"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "B_CHANNEL"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

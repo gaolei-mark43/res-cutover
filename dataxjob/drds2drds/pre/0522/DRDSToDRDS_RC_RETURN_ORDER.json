@@ -1,0 +1,71 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 8
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "drdsreader",
+                    "parameter": {
+                        "username": "pre_xlszyzx_drds",
+                        "password": "AA11bb22",
+                        "where": "",
+                        "column": [
+                            "ORDER_ID",
+                            "RS_IMEI",
+                            "RS_ID",
+                            "UPDATE_TIME",
+                            "PROVINCE_CODE",
+                            "REMARK",
+                            "DEPOT_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RETURN_ORDER"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://10.124.157.42:3306/pre_xlszyzx_drds?useUnicode=true&characterEncoding=UTF-8"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "drdswriter",
+                    "parameter": {
+                        "username": "test_zyzx_dresource",
+                        "password": "test_dresource_8635",
+                        "writeMode": "insert ignore",
+                        "preSql": [],
+                        "postSql": [],
+                        "column": [
+                            "ORDER_ID",
+                            "RS_IMEI",
+                            "RS_ID",
+                            "UPDATE_TIME",
+                            "PROVINCE_CODE",
+                            "REMARK",
+                            "DEPOT_ID"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "RC_RETURN_ORDER"
+                                ],
+                                "jdbcUrl": "jdbc:mysql://10.124.144.98:3306/test_zyzx_dresource?useUnicode=true&characterEncoding=UTF-8"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
